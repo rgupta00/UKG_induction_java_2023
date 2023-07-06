@@ -1,8 +1,16 @@
+google drive link
+https://drive.google.com/drive/folders/1ib9BIZ5bCFPb8esUsnGUL6mlOZB-drTs
+
+
 lets start with day 1 topics
 ==============================
 
 Introduction to java,  feature of java, Intellij community edition IDE+ Java 8
-Java Architecture, JDK,JRE,Array, Loops, dry run, examples and practice,Introduction to Object Oriented Principles, UML basics Class,  Objects declaration, Methods, Constructors and Destructors(Garbage Collections - Memory management), Passing parameters to methods(By value & By reference), Polymorphism  - Method Overloading, Constructor Overloading, static keywords, var args, static import
+Java Architecture, JDK,JRE,Array, Loops, dry run, examples and practice,Introduction to Object Oriented Principles, UML basics Class,  Objects declaration, Methods, Constructors and Destructors(Garbage Collections - Memory management), Passing parameters to methods(By value & By reference), Polymorphism  - Method Overloading, Constructor Overloading, static keywords, var args, static imhttps://www.youtube.com/watch?v=s_hoSFpYsG4&list=PLv2-IhRmhbySgIQo3rH8KnclTSOYAp2xG&index=4port
+
+Course repo:
+---------------
+https://github.com/rgupta00/UKG_induction_java_2023
 
 
 books:
@@ -14,17 +22,89 @@ https://www3.ntu.edu.sg/home/ehchua/programming/index.html
 * core java kathy sierra
 
 * head first design patterns
-
+https://drive.google.com/drive/folders/1ib9BIZ5bCFPb8esUsnGUL6mlOZB-drTs
 tools :
-
+-------
 jdk 1.8 / java 8
 intellij ide community edition
 
 how to configure the env varible for jdk
 https://www.youtube.com/watch?v=QH18cZwDOyU&list=PLv2-IhRmhbyQpigiJ-cO1rz8Plp0tzSmY
 
+Hello world in java?
+===================
+class Hello{
+	public static void main(String args[]){
+		System.out.println("hello to java");	
+	}
+}
 
 
+
+how to write the coding
+thinking ?
+
+how to get next dates?
+
+
+31/12/2023
+
+	1. leap year
+	2. permitted https://drive.google.com/drive/folders/1ib9BIZ5bCFPb8esUsnGUL6mlOZB-drTsday per month
+	3. to find the next day
+
+
+28/2/2001
+
+1/3/2000
+
+1/1/2024
+
+//shadowning
+
+
+int i=0;
+
+main(){
+
+
+
+}https://drive.google.com/drive/folders/1ib9BIZ5bCFPb8esUsnGUL6mlOZB-drTs
+
+Lunch 1:10->2PM
+31,28,31,30,31,30,31,31,30,31,30,31
+
+
+
+
+Post lunch session:
+------------------
+Introduction to java
+feature of java, 
+Intellij community edition IDE+ Java 8
+Java Architecture
+JDK,JRE,Array, Loops,
+dry run, examples and practice,
+
+
+Introduction to Object Oriented Principles
+
+
+Can we have private ctr inside the class?
+yes 
+then how to use it?
+
+
+
+
+
+
+Reference:
+===========
+to listen:
+https://www.youtube.com/watch?v=s_hoSFpYsG4&list=PLv2-IhRmhbySgIQo3rH8KnclTSOYAp2xG&index=4
+
+if not comfortable 
 
 
 

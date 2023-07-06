@@ -17,7 +17,7 @@ public class LeapYearLogic {
         int year=2023;
 
         //in need to check no of day in every month
-        int noOfDays[]={-1, 31, 28};
+        int noOfDays[]={-1,31,28,31,30,31,30,31,31,30,31,30,31};
         if(isLeapYear(year)){
             noOfDays[2]=29;
         }
