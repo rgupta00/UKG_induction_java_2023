@@ -1,0 +1,46 @@
+lets start with day 1 topics
+==============================
+
+Introduction to java,  feature of java, Intellij community edition IDE+ Java 8
+Java Architecture, JDK,JRE,Array, Loops, dry run, examples and practice,Introduction to Object Oriented Principles, UML basics Class,  Objects declaration, Methods, Constructors and Destructors(Garbage Collections - Memory management), Passing parameters to methods(By value & By reference), Polymorphism  - Method Overloading, Constructor Overloading, static keywords, var args, static import
+
+
+books:
+-------
+* head first core java
+
+* site 
+https://www3.ntu.edu.sg/home/ehchua/programming/index.html  	
+* core java kathy sierra
+
+* head first design patterns
+
+tools :
+
+jdk 1.8 / java 8
+intellij ide community edition
+
+how to configure the env varible for jdk
+https://www.youtube.com/watch?v=QH18cZwDOyU&list=PLv2-IhRmhbyQpigiJ-cO1rz8Plp0tzSmY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
