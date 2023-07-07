@@ -1,9 +1,4 @@
-google drive link
-https://drive.google.com/drive/folders/1ib9BIZ5bCFPb8esUsnGUL6mlOZB-drTs
 
-
-lets start with day 1 topics
-==============================
 
 Introduction to java,  feature of java, Intellij community edition IDE+ Java 8
 Java Architecture, JDK,JRE,Array, Loops, dry run, examples and practice,Introduction to Object Oriented Principles, UML basics Class,  Objects declaration, Methods, Constructors and Destructors(Garbage Collections - Memory management), Passing parameters to methods(By value & By reference), Polymorphism  - Method Overloading, Constructor Overloading, static keywords, var args, static imhttps://www.youtube.com/watch?v=s_hoSFpYsG4&list=PLv2-IhRmhbySgIQo3rH8KnclTSOYAp2xG&index=4port
@@ -120,6 +115,166 @@ if i have a procted data/method in one class in a package
 
 that data/method is accessable to other package iff
 other package class ...subclass it
+
+
+
+
+
+
+
+
+
+Day 2:
+=========
+Quick recap of day 1:
+
+basics of java
+
+JDK VS JVM VS JRE
+
+class 
+object
+methods
+access modifiers
+
+
+What next?
+
+Call by value vs call by refrence
+
+relationship bw the objects
+==============================
+	
+	use a
+		A trainer is using marker while teaching
+		
+
+class Marker{
+}
+
+class Trainer  {
+	public void teach(Marker m){
+	}
+}
+
+
+	A pond have 5 duckes 2 is black and 3 is white
+	
+
+class Duck{
+	private String color;
+	public Duck(String color){
+		///
+	}
+	//behaviour of duck
+	public void swim(){
+		//
+	}
+	
+	
+}
+
+
+class Pond{
+	private Duck[] ducks=new Duck[5];
+	
+	public void showPond(){
+		for(Duck d: ducks){
+			d.swim();
+		}
+	
+	}
+
+use a
+		A trainer is using marker whi
+}
+
+
+A person name ravi have red shirt it have a pocket and pocket have a pen have 4 riffle
+
+	
+	
+	has a(Association)
+	---
+	
+	
+	
+	
+	
+	
+	is a
+	
+	
+	
+	
+	passing ctr parameters:
+	
+	
+	
+	
+polymorphism
+
+final 
+
+abstract class
+
+interface
+
+real life code example on interface and abstract class
+
+
+
+
+
+
+
+Example of inheritance
+
+1.
+ Employee
+ 	id name salary
+ 	
+2.	
+ FullTimeEmployee
+ 	id name salary, ppfNo
+ 	
+ 
+3.
+ PartTimeEmployee
+ 	id name salary, noOfDays, salaryPerDay
+ 	
+ 	
+4. main
+------------
+Create two emp one is ft and one is pt and create the object and print there state
+
+
+5.
+PaymentProcessingSystem
+	employees
+	
+	
+
+	
+* should not Employee is an abstract class
+
+
+
+6. you need to process salary for consulant(inteface) 
+
+* Invoice
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
