@@ -227,9 +227,7 @@ real life code example on interface and abstract class
 
 
 
-
 Example of inheritance
-
 1.
  Employee
  	id name salary
@@ -238,11 +236,9 @@ Example of inheritance
  FullTimeEmployee
  	id name salary, ppfNo
  	
- 
 3.
  PartTimeEmployee
  	id name salary, noOfDays, salaryPerDay
- 	
  	
 4. main
 ------------
@@ -267,6 +263,225 @@ PaymentProcessingSystem
 
 
 
+product based comp
+
+java 8 ----> java 17
+
+migration : java version , framewrok
+
+Spring boot vs MEAN
+
+-------------------
+
+	express 
+jvm vs nodejs stack
+
+
+basics things: 
+
+			polymorphism (one name many forms)
+			
+			
+	compile time					run time
+	
+funcation 	 opertor 	template		Overriding
+overloading	op		class
+				(generic)
+	
+	explict  implicit
+	No	  yes
+
+
+
+Abstract class ?
+
+
+
+
+
+
+
+
+
+
+ abstract class A{
+  
+  public abstract void foo();
+ 
+}
+
+
+A a=new A();
+
+
+what we have done so far
+
+polymorphism
+
+abstract class
+
+interface?
+
+is 100% abstraction (changes in java 8)
+ie u can only delare the methods not defined
+inteface can not have instance variable => all are static final
+
+
+
+
+interface Foo{
+	int i=0;
+	void foo();
+}
+
+
+interface Foo{
+	
+	public static final int i=0;
+	public abstract void foo();
+}
+======
+java 7:
+=======
+
+		abs class			interface
+		
+ctr		yes				no
+
+instance	yes				no
+variable
+
+static 		yes				yes
+
+all methods
+are abstract	no				yes
+
+
+
+is 100% abstraction , it is just like promise
+Runnable 
+Callable
+Comparable
+
+Auto rik (Kids)
+
+interface A{
+	
+	public void foo();
+}
+
+ class B implements A{
+	public void foo(){
+	
+	}
+	
+	public void foo2(){
+	
+	}
+}
+
+
+
+
+muliple inheritance (why)
+==============================
+
+
+class A{
+	int i=55;
+	public void foo(){
+		Hello
+	}
+}
+
+class B{
+	int i=66;
+	public void foo(){
+		Bye
+	}
+}
+
+class C extends A, B{
+public void foo(){
+		i
+		super.foo();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+interface A{
+	int i=55;//static
+	public void foo();
+}
+
+interface B{
+	int i=66;
+	public void foo();
+}
+
+class C implements A, B{
+
+public void foo(){
+		B.i
+		super.foo();
+	}
+
+}
+
+
+
+
+
+
+class A{
+	static int i=55;
+	
+}
+
+class B extends A{
+	public void foo(){
+	sout(i);
+	}
+	
+}
+
+class C extends A, B{
+public void foo(){
+		i
+		super.foo();
+	}
+
+}
+
+
+class A{
+	public static void foo(){
+		I
+	}
+}
+
+class B extends A{
+	public static void foo(){
+		II
+	}
+}
+
+main
+
+B a=new B();
+a.foo();
 
 
 
