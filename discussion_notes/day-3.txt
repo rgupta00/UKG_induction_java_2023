@@ -1,0 +1,34 @@
+Session 3:
+=================
+We will start sharp at 9:05
+----------------------------
+
+Quick recap 
+* relationship bw the objects
+	USE A
+	HAS A
+	IS A
+	
+* Inheritance passing parameters from drived class to base ctr
+* type of inheritance
+
+* polymorphism
+
+* abstract class vs interface
+
+* when to go for abstract class when to go for interface?
+
+*Final keyword
+
+* String, how it works
+ String vs stringBuilder vs StringBuffer ... performance consideration
+ 
+*Immutablity
+
+* Inner classes
+
+*Java 5 features
+
+* Basics of Exception handling
+
+
