@@ -6,29 +6,254 @@ We will start sharp at 9:05
 Quick recap 
 * relationship bw the objects
 	USE A
+		A trainer is using marker to teaching
+		
 	HAS A
 	IS A
 	
 * Inheritance passing parameters from drived class to base ctr
+
+
 * type of inheritance
 
-* polymorphism
+
+* 				polymorphism
+
+	compile										run time poly
+	
+  function overloading	op overloading	generic class*					Overriding
+
+			explict vs implict
+
+
 
 * abstract class vs interface
+------------------------------------
+interface : contract bw 2 parties
+used to achive 100% abstraction (before java 8)
+
+interface Foo{
+	void foo();
+	
+}
+
+
+
 
 * when to go for abstract class when to go for interface?
 
 *Final keyword
 
+
+
+
+
+
+
+
 * String, how it works
  String vs stringBuilder vs StringBuffer ... performance consideration
- 
+
 *Immutablity
-
 * Inner classes
-
 *Java 5 features
-
 * Basics of Exception handling
+
+
+
+
+
+
+
+
+
+What is toString method 
+
+Why i should care about it?
+
+
+Object class in java
+
+
+class A{
+	void foo(){
+	}
+
+}
+
+
+
+
+abstract class B extends  A{
+	abstract void foo();
+
+}
+
+
+interface A{
+	void foo();
+}
+
+abstract class B implements A{
+
+}
+
+
+
+
+
+
+
+
+
+interface A{
+	void foo();
+}
+
+class B implements A{
+
+  void foo(){
+  
+  }
+
+}
+
+
+
+interface A{
+  public  void foo();
+}
+
+class B implements A{
+
+    void foo(){
+       System.out.println("foo impl by class B");
+    }
+}
+
+
+
+
+
+
+
+
+class A{
+
+  public void foo(){
+  	 System.out.println("foo imp by class A");
+  }
+}
+
+class B extends A{
+
+    void foo(){
+       System.out.println("foo imp by class B");
+    }
+}
+
+A a=new B();
+
+a.foo();
+
+
+
+
+
+
+
+Covarient return type ?
+
+Dont work for primitive type
+
+class A{
+
+	public int add(){
+		return 10;
+	}
+
+}
+
+class B extends  A{
+
+	public long add(){
+		return 10L;
+	}
+
+}
+
+
+class A{
+
+	public String toString(){
+	
+		
+	}
+
+}
+
+A a=new A();
+A a1=new A();
+
+a=a1;
+
+a.toString();
+a1.toString();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inner classes?
+==============
+
+Summury
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
