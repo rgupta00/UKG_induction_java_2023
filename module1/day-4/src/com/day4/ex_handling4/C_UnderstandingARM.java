@@ -38,10 +38,9 @@ class Door implements AutoCloseable {
 }
 public class C_UnderstandingARM {
     public static void main(String[] args) {
-        try(Door d=new Door();  Window window=new Window()){
-            d.doWork();
+        try(Window window=new Window()){
             window.doWork();
-        }catch (IOException ex){
+        }catch (Exception ex){
             System.out.println("some ex happens "+ ex);
         }
     }
