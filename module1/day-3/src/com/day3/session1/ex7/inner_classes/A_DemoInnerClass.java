@@ -1,50 +1,34 @@
 package com.day3.session1.ex7.inner_classes;
-//
-//class Outer{
-//    private int i=33;
-//    class Inner{
-//        private int i=333;
-//        public void printI(){
-//            System.out.println(this.i);
-//            System.out.println(Outer.this.i);
-//        }
-//    }
-//    public  void demo(){
-//        Inner inner=this.new Inner();
-//        inner.printI();
-//    }
-////    public static void demo(){
-////        Inner inner=new Inner();
-////        inner.printI();
-////    }
-//}
-
 
 class Outer{
-    private int i=33;
-    private class Inner{
-        private int i=333;
-        public void printI(){
-            System.out.println(this.i);
-            System.out.println(Outer.this.i);
+    private int i=55;
+
+    class  Inner{
+       private int i=555;
+        public void foo(){
+            System.out.println("foo of Inner class"+ Outer.this.i);//55
+            System.out.println("foo of Inner class"+ this.i);//555
         }
     }
-
+    //fooOuter must not static method ..outerwise it will not work
+    //static method dont hv this
+    public  void fooOuter(){
+        Inner in=this.new Inner();
+        in.foo();
+    }
 }
 public class A_DemoInnerClass {
     public static void main(String[] args) {
+    //how to create the object of inner class
+        Outer o=new Outer();
+        Outer.Inner in=o.new Inner();
+        in.foo();
 
-      //  Outer o=new Outer();
-//       Outer.Inner inn=o.new Inner();
-//        Outer.Inner inn2=o.new Inner();
-//        Outer.Inner inn3=o.new Inner();
-
-        //or
-
-//        Outer.Inner inn=new Outer().new Inner();
-//        Outer.Inner inn2=new Outer().new Inner();
-//        Outer.Inner inn3=new Outer().new Inner();
-
+//        Outer.Inner in=new Outer().new Inner();
+//        in.foo();
+//
+//        Outer.Inner in=new Outer().new Inner();
+//        in.foo();
 
     }
 }

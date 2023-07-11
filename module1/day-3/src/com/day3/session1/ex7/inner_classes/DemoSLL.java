@@ -2,7 +2,6 @@ package com.day3.session1.ex7.inner_classes;
 
 //Harsh
 class LinkList{
-
     private  class Node{
         int data;Node next;
         public Node(int data) {
