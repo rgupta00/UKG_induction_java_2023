@@ -9,7 +9,8 @@ public class B_CheckedVsUncheckedEx {
     //throw vs throws :
     public static void main(String[] args)throws FileNotFoundException{
 
-        BufferedReader br=new BufferedReader(new FileReader(new File("demo.txt")));
+        BufferedReader br=new BufferedReader
+                (new FileReader(new File("demo.txt")));
         System.out.println("file is found");
 
 

@@ -1,0 +1,11 @@
+Java exception handling enables
+your Java applications to handle
+errors sensibly
+Exception handling is a very important
+yet often neglected aspect of writing
+robust Java applications or components
+When an error occurs in a Java program
+it usually results in an exception being thrown
+How you throw, catch and handle these exception matters
+ There are several different ways to do so.
+ Not all are equally efficient and fail safe.

@@ -1,0 +1,142 @@
+Day 4:
+=========
+
+OCJPA
+--------------
+java certification
+----------------
+
+Topics:
+innner class
+	
+class A{
+	int i;
+	
+	private class B{}
+	
+
+}
+
+
+method local inner class
+
+class A{
+	
+	void Foo(){
+		 class B{
+		 
+		 }
+		 
+	
+	}
+	
+
+}
+
+
+Annonymous inner class:
+class without name?
+
+java 7 :(
+
+java 8: lambda expression
+
+=> 
+
+->
+
+---------------------
+interface :
+100% abstraction
+
+
+
+
+
+
+
+
+
+
+
+
+
+Inner class
+
+ex vs errors ?
+
+
+exception handling
+	try catch throw throws finally
+	when to use what?
+IO, performance, Serilization
+
+
+Serilization: network programming java
+
+distribted computing
+
+
+Uncheked Ex
+
+
+cheked Ex
+
+
+user define ex:
+
+what is the need of throws and throw
+
+try catch throw throws and finally
+
+
+finally: gpp(good prog practic)
+
+* never return a value  form finally code
+* never throw a exception form finally code
+
+
+Automatic Resource Mgt : Java 7
+purpose : programmer not need to close the resouce
+
+overloading vs overriding and ex handling
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
