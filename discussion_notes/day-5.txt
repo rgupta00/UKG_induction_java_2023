@@ -1,123 +1,208 @@
-Day 4:
-=========
+Day 5:
+==========
+resuablity can be achive without inheritance*
+---------------------------------------
 
-OCJPA
---------------
-java certification
-----------------
+The Single Responsibility Principle
 
-Topics:
-innner class
-	
-class A{
-	int i;
-	
-	private class B{}
-	
+The Open-Closed Principle
 
+The Liskov Substitution Principle
+
+The Interface Segregation Principle
+
+The Dependency Inversion Principle
+
+solid principles
+S: SRP
+O: OCP
+L: LSP
+I: ISP
+D: DIP vs DI vs IOC
+
+LSP
+-----
+The principle defines that objects of a superclass 
+shall be replaceable with objects of its subclasses without breaking the application
+
+
+square rectangle problem liskov
+
+
+class Rectangle{
+    private int l;
+    private int b;
+
+    public int getL() {
+        return l;
+    }
+
+    public void setL(int l) {
+        this.l = l;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public Rectangle(int l, int b) {
+        this.l = l;
+        this.b = b;
+    }
+
+    public int getArea(){
+        return l*b;
+    }
+}
+//class Square extends Rectangle{
+//    public Square(int l) {
+//        super(l, l);
+//    }
+//}
+
+class Square{
+    private Rectangle rectangle;
+    public Square(int l){
+        rectangle=new Rectangle(l,l);
+    }
+
+    //Square is re using the code of Rectangle class :
+    public int getArea(){
+        return rectangle.getArea();
+    }
+
+    public void changeDimension(int changeValue){
+        rectangle.setB(changeValue);
+        rectangle.setL(changeValue);
+    }
+
+}
+public class A_SqRectangeProblem {
+    public static void main(String[] args) {
+        Square square=new Square(3);
+        System.out.println(square.getArea());
+        square.changeDimension(5);
+        System.out.println(square.getArea());
+
+
+//        Square sq=new Square(4);
+//        System.out.println(sq.getArea());
+//        sq.setB(5);
+//        System.out.println(sq.getArea());
+    }
 }
 
 
-method local inner class
 
-class A{
-	
-	void Foo(){
-		 class B{
-		 
-		 }
-		 
-	
-	}
-	
-
-}
-
-
-Annonymous inner class:
-class without name?
-
-java 7 :(
-
-java 8: lambda expression
-
-=> 
-
-->
-
----------------------
-interface :
-100% abstraction
+-------------------------
+class
 
 
 
 
 
-
-
-
-
-
-
-
-
-Inner class
-
-ex vs errors ?
-
-
-exception handling
+Quick recap of exception handling
 	try catch throw throws finally
-	when to use what?
-IO, performance, Serilization
+	
+	final vs finally vs finilized*
 
+String class in java, how string stored internally
 
-Serilization: network programming java
+immutablity
 
-distribted computing
-
-
-Uncheked Ex
-
-
-cheked Ex
-
-
-user define ex:
-
-what is the need of throws and throw
-
-try catch throw throws and finally
-
-
-finally: gpp(good prog practic)
-
-* never return a value  form finally code
-* never throw a exception form finally code
-
-
-Automatic Resource Mgt : Java 7
-purpose : programmer not need to close the resouce
-
-overloading vs overriding and ex handling
+how to create my own immutablity class
 
 
 
 
+ImmutableClass
+{i=11, arr=[3, 6, 7], foo=Foo{i=333},
+ date=Wed Jul 12 11:14:10 IST 2023}
 
 
 
+how to create
 
 
 
+String vs StringBuilder vs StringBuffer
+
+Object class in java 
+==========================
+aka mother class in java
+
+public class java.lang.Object {
+
+  public java.lang.Object();
+  
+  //Reflection api*
+  public final native java.lang.Class<?> getClass();
+  
+  public native int hashCode();
+  
+  public boolean equals(java.lang.Object);
+  
+  protected native java.lang.Object clone() throws java.lang.CloneNotSupportedException;
+  
+  public java.lang.String toString();
+  
+  //Multithreding
+  public final native void notify();
+  public final native void notifyAll();
+  public final native void wait(long) throws java.lang.InterruptedException;
+  public final void wait(long, int) throws java.lang.InterruptedException;
+  public final void wait() throws java.lang.InterruptedException;
+  
+  
+ 
+  
+  static {};
+}
 
 
 
+  public native int hashCode();
+  
+  public boolean equals(java.lang.Object);
+  
+  protected native java.lang.Object clone()
+  
+  protected void finalize() 
+  
+  
+  "Object vs Objects class"
+  ----------------------------
+  java 7: Objects it is helper class having many methods
+  
+
+some important methods
+
+IO, Types of streams
+------------------------
+
+What is IO and 
+
+Performance 
+Serilization
+
+java collections basics
+ListL ArrayList, LinkedList, Vector
 
 
+What is InvalidClassException in java?
+What is the serieal version id?
 
 
+How to do lab assignments?
+------------------------
+1. make a git repo and push the code regularily
+2. any body (mgt) can check your lab assignment status
 
+3. will share excel sheet with your name where u can put the link of ur git repo
 
 
 
