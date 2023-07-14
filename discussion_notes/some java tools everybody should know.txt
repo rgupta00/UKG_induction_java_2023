@@ -1,0 +1,22 @@
+java
+javac
+
+javap
+
+# i want to get all the java process running in my system
+jps -l
+
+jps -l
+
+68912 sun.tools.jps.Jps
+68359 com.day7.session1.classical_threads2.B_DeadLock
+9214 com.intellij.idea.Main
+68334 org.jetbrains.jps.cmdline.Launcher
+
+
+# i wnat to get thread dump (X ray)
+jstack 68359 > dump.txt
+
+visualvm : heap, stack, deadlock, perforamance....
+
+

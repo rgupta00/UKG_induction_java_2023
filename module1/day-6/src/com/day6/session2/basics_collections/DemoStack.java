@@ -53,7 +53,7 @@ class Stack<T>{
 public class DemoStack {
     public static void main(String[] args) {
 
-        Stack s=new Stack();
+        Stack s=new Stack(Integer.class);
         s.push(292);
         s.push(292);
         s.push(722);
