@@ -3,13 +3,32 @@ package com.day7.session1.classical_threads2;
 
 class Q {
     int n;
-     int getM() {
+    boolean valueSet=false;
+
+    //consumer t1
+    synchronized   int get() {
+        while (!valueSet){
+            try{
+                wait();
+            }catch (InterruptedException e){}
+        }
         System.out.println("get: " + n);
+        valueSet=false;
+        notify();
+
         return n;
     }
-     void putM(int n) {
+    //producer t2
+    synchronized void put(int n) {
+        while (valueSet){
+            try{
+                wait();
+            }catch (InterruptedException e){}
+        }
         this.n = n;
+        valueSet=true;
         System.out.println("put: " + n);
+        notifyAll();
     }
 }
 
@@ -64,6 +83,8 @@ public class A_PandC {
         Q q = new Q();
         Producer producer = new Producer(q);
         Consumer consumer = new Consumer(q);
+
+        System.out.println("end");
 
     }
 }
