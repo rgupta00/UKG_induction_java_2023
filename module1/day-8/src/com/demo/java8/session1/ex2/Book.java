@@ -5,6 +5,10 @@ public class Book {
 	private String title;
 	private String author;
 	private double price;
+
+	public boolean isCoslty(){
+		return price>=500;
+	}
 	public int getId() {
 		return id;
 	}

@@ -1,8 +1,13 @@
 package com.demo.java8.session2.ex5;
+
+import java.util.List;
+
 class Author {
 	private String name;
 	private String lastname;
 	private String country;
+	//private List<String> countryVisitors;
+
 	public String getName() {
 		return name;
 	}

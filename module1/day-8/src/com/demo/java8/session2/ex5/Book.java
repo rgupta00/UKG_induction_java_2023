@@ -9,6 +9,8 @@ class Book {
 	private Subject subject;
 	private int year;
 	private String isbn;
+
+
 	public String getTitle() {
 		return title;
 	}
