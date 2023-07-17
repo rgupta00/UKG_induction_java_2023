@@ -4,12 +4,12 @@ package com.day7.session1.classical_threads;
 class MyJob implements Runnable{
     @Override
     public void run() {
-        System.out.println("thread is started "+Thread.currentThread().getName());
+        System.out.println("thread is started :"+Thread.currentThread().getName());
         try{
             Thread.sleep(1000);
         }catch (InterruptedException ex){}
 
-        System.out.println("thread is ended "+Thread.currentThread().getName());
+        System.out.println("thread is ended :"+Thread.currentThread().getName());
     }
 }
 public class A_HelloWorld {
@@ -24,16 +24,17 @@ public class A_HelloWorld {
         Thread thread3=new Thread(job,"C");
 
         thread1.start();
-        thread2.start();
-        thread3.start();
+        //thread1.run();
+//        thread2.start();
+//        thread3.start();
 
-       try{
-           thread1.join();//thraed1 is saying to main join after me
-           thread2.join();
-           thread3.join(1000,12000);
-       }catch (InterruptedException e){
-
-       }
+//       try{
+//           thread1.join();//thraed1 is saying to main join after me
+//           thread2.join();
+//           thread3.join(1000,12000);
+//       }catch (InterruptedException e){
+//
+//       }
 
     //how to ensure main should finish at end
 

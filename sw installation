@@ -1,0 +1,119 @@
+ SW installation:
+========================
+
+
+essential tools: Maven GIT, Gradle, Jenkins
+-------------------------------
+https://maven.apache.org/download.cgi
+
+https://git-scm.com/downloads
+
+https://gradle.org/releases/
+
+Postgress, pgadmin
+--------------------------------
+https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+https://www.pgadmin.org/download/pgadmin-4-windows/
+
+
+Postman
+------------------------------
+https://www.postman.com/downloads/
+
+
+Nodejs, Visual studio code
+------------------------------------------
+https://nodejs.org/en/download/
+https://code.visualstudio.com/download
+
+
+
+angular
+---------------------
+npm install -g @angular/cli@8.3.19
+ng --version
+ng new helloapp
+ng serve --open
+
+
+
+
+Session 23-24: Docker and K8s basics (demo)
+-----------------------------------------
+https://docs.docker.com/desktop/install/windows-install/
+https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+
+GCP: good cloud account creation:
+-------------------------------
+https://cloud.google.com/free/?utm_source=google&utm_medium=cpc&utm_campaign=japac-IN-all-en-dr-bkws-all-all-trial-e-dr-1009882&utm_content=text-ad-none-none-DEV_c-CRE_602265531489-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20GCP%20~%20Trial%20_%20Free%20Tier-KWID_43700071544541822-aud-1640178259900%3Akwd-886545049102&userloc_9061663-network_g&utm_term=KW_gcp%20free%20account&gclid=Cj0KCQjwuaiXBhCCARIsAKZLt3mAX56Nfmrittxg-DV6JYDL-f9hfPtQWsDKtn-e864mkEzN7zFjiawaAoRvEALw_wcB&gclsrc=aw.ds
+
+
+
+some good books:
+-----------------
+core java:
+------------
+0. Head first 
+1. effective java
+2. thinking in java
+3. notes
+	https://www3.ntu.edu.sg/home/ehchua/programming/index.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://testng.org/testng-eclipse-update-site
+
+
+Session 23-24: Docker and K8s basics (demo)
+-----------------------------------------
+https://docs.docker.com/desktop/install/windows-install/
+https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+
+GCP: good cloud account creation:
+-------------------------------
+https://cloud.google.com/free/?utm_source=google&utm_medium=cpc&utm_campaign=japac-IN-all-en-dr-bkws-all-all-trial-e-dr-1009882&utm_content=text-ad-none-none-DEV_c-CRE_602265531489-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt%20~%20GCP%20~%20Trial%20_%20Free%20Tier-KWID_43700071544541822-aud-1640178259900%3Akwd-886545049102&userloc_9061663-network_g&utm_term=KW_gcp%20free%20account&gclid=Cj0KCQjwuaiXBhCCARIsAKZLt3mAX56Nfmrittxg-DV6JYDL-f9hfPtQWsDKtn-e864mkEzN7zFjiawaAoRvEALw_wcB&gclsrc=aw.ds
+
+
+
+some good books:
+-----------------
+core java:
+------------
+0. Head first 
+1. effective java
+2. thinking in java
+3. notes
+	https://www3.ntu.edu.sg/home/ehchua/programming/index.html
+
+
+
