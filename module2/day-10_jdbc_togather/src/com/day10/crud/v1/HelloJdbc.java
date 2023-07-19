@@ -1,5 +1,9 @@
-package com.day10.crud;
+package com.day10.crud.v1;
 import java.sql.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class HelloJdbc {
     public static void main(String[] args) {
         //i should try to load the load the driver
