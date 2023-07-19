@@ -2,7 +2,7 @@
 ========================
 
 
-essential tools: Maven GIT, Gradle, Jenkins
+essential tools: Maven GIT, Gradle
 -------------------------------
 https://maven.apache.org/download.cgi
 
