@@ -18,7 +18,8 @@ public class ConnectionFactory {
         String url=null;
         String password= null;
        try {
-           InputStream is = new FileInputStream("db.properties");
+           InputStream is =
+                   new FileInputStream("db.properties");
            Properties props = new Properties();
            props.load(is);
            driver=props.getProperty("jdbc.driver");
