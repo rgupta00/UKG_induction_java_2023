@@ -20,19 +20,27 @@ public class Main {
 //        List<Employee>employeeList=employeeService.getAll();
 //        employeeList.forEach(e-> System.out.println(e));
 
-       try{
-           Employee e=employeeService.getById(1);
-           //it can be taken from the
-           e.setSalary(9000);
-           employeeService.updateEmployee(1, e);
-
-           System.out.println(e);
-
-       }catch (EmployeeNotFoundException ex) {
-           System.out.println(ex.getMessage());
-       }
+//       try{
+//           Employee e=employeeService.getById(1);
+//           //it can be taken from the
+//           e.setSalary(9000);
+//           employeeService.updateEmployee(1, e);
+//
+//           System.out.println(e);
+//
+//       }catch (EmployeeNotFoundException ex) {
+//           System.out.println(ex.getMessage());
+//       }
 
       //  employeeService.deleteEmployee(80);
+
+        try{
+            Employee e=employeeService.getById(1000);
+            System.out.println(e);
+
+        }catch (EmployeeNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
 
     }
 }
