@@ -48,7 +48,6 @@ public class CalculatorTest {
         System.out.println("---divide test---");
         assertEquals(2, calculator.divide(40,20));
     }
-
     @Disabled
     @Test
     public void divideTestFailure(){
@@ -70,7 +69,6 @@ public class CalculatorTest {
     }
 
     //i want to run the add test case acc to that csv file
-
 
 
     @AfterEach
