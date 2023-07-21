@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ex_02_jpa_one2one" />
+        <module name="day_12_hibernate" />
+        <module name="ex_03_jpa_one2many" />
+        <module name="ex_01_jpa" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
