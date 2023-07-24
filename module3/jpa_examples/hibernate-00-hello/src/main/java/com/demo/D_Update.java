@@ -1,13 +1,12 @@
 package com.demo;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import java.util.List;
-
-public class C_GetById {
+public class D_Update {
     public static void main(String[] args) {
 
         StandardServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder()
@@ -18,26 +17,17 @@ public class C_GetById {
 
         Session session=sessionFactory.openSession();
 
-        //get vs load
-        //lazy vs eager
-                                        //get by primary
-//        Employee e=session.get(Employee.class, 5);//P  it works eagerly
-//
-//        session.close();//D
-//
-//        System.out.println(e);
+        Transaction tx=session.getTransaction();
+        try{
+            tx.begin();
 
+            tx.commit();
+        }catch (Exception e){
 
-        //in load method  hib dont hit the database it create a proxy object
-        Employee e=session.load(Employee.class, 5);//P  it works lazy way
-        System.out.println("-------------------");
-        session.close();//D //LazyInitializationException
-        System.out.println(e.getName());
+            tx.rollback();
+        }
 
-
-
-//        System.out.println(e.getName());
-
+        session.close();
         sessionFactory.close();
 
     }
