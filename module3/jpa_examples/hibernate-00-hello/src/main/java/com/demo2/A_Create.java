@@ -1,4 +1,4 @@
-package com.demo;
+package com.demo2;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -6,7 +6,11 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class D_Update {
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Date;
+
+public class A_Create {
     public static void main(String[] args) {
 
         StandardServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder()
@@ -21,22 +25,16 @@ public class D_Update {
         try{
             tx.begin();
 
-            //first u get the object
+            //String name, double salary, String dept, EmpType empType
+            Employee employee = new Employee("raj",56000.00,"IT", EmpType.T,
+                    LocalDate.of(2000, Month.MAY, 11));
 
-            Employee e=session.get(Employee.class, 4);
+            employee.setTempPassword("foo12344#");
+            session.save(employee);
 
-            e.setSalary(e.getSalary()*1.2);
-
-            session.update(e);//it will fire update query...
-
-
-            //then change it
-
-            //u need to update
-
-            //session.update();
-
-
+//            Employee e2=session.get(Employee.class, 1);
+//            System.out.println(e2.getName());
+//            System.out.println(e2.getTempPassword());
 
             tx.commit();
         }catch (Exception e){

@@ -21,6 +21,13 @@ public class E_Delete {
         try{
             tx.begin();
 
+            //first u get the object
+
+            Employee e=session.get(Employee.class, 4);
+
+           session.delete(e);
+
+
             tx.commit();
         }catch (Exception e){
 

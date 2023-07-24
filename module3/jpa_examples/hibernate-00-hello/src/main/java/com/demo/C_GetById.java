@@ -29,10 +29,13 @@ public class C_GetById {
 
 
         //in load method  hib dont hit the database it create a proxy object
+
         Employee e=session.load(Employee.class, 5);//P  it works lazy way
         System.out.println("-------------------");
+
+        //System.out.println(e.getName());
+
         session.close();//D //LazyInitializationException
-        System.out.println(e.getName());
 
 
 
