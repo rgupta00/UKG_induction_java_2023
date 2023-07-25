@@ -7,10 +7,14 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-    <context:component-scan base-package="com.demo"/>
-    <!--<context:annotation-config/>-->
+    <context:component-scan base-package="com.doubts"/> <!--search anno in com.doubts-->
+     <context:annotation-config/> <!--i will go for annotation -->
 
-
+<!--    <bean id="c" class="com.doubts.C" autowire="byType">-->
+<!--    </bean>-->
+<!--    <bean id="a" class="com.doubts.A" autowire-candidate="false"/>-->
+<!--    <bean id="a1" class="com.doubts.A"/>-->
+<!--    <bean id="b" class="com.doubts.B"/>-->
 </beans>
 
 
