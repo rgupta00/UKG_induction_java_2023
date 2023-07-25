@@ -5,13 +5,11 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import java.util.List;
-
 public class C_GetById {
     public static void main(String[] args) {
 
         StandardServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder()
-                .configure("hibernate.cfg.xml").build();
+                .configure("foo.cfg.xml").build();
 
         SessionFactory sessionFactory=
                 new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();

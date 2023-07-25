@@ -10,7 +10,7 @@ public class C_LifeCycle {
     public static void main(String[] args) {
 
         StandardServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder()
-                .configure("hibernate.cfg.xml").build();
+                .configure("foo.cfg.xml").build();
 
         SessionFactory sessionFactory=
                 new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();

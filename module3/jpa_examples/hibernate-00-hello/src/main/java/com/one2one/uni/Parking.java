@@ -10,14 +10,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 //one -to -one :Eager :fetch = FetchType.EAGER
 @Entity
-@Table(name = "parking_table_one2one_uni_1")
+@Table(name = "parking_table_one2one_uni_raj3")
 public class Parking {
 		@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 		private int partingId;
 		private String parkingLocation;
 
 		@JoinColumn(name = "eid_fk")
-		@OneToOne(cascade = {CascadeType.PERSIST}, fetch = FetchType.LAZY)
+		@OneToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 		private Employee employee;
 
 		public Parking(String parkingLocation) {

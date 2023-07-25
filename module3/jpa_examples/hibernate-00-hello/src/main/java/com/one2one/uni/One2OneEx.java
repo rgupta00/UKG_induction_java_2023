@@ -6,15 +6,11 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.List;
-
 public class One2OneEx {
     public static void main(String[] args) {
 
         StandardServiceRegistry serviceRegistry=new StandardServiceRegistryBuilder()
-                .configure("hibernate.cfg.xml").build();
+                .configure("foo.cfg.xml").build();
 
         SessionFactory sessionFactory=
                 new MetadataSources(serviceRegistry).buildMetadata().buildSessionFactory();
@@ -37,14 +33,25 @@ public class One2OneEx {
             parking2.setEmployee(e2);
             parking3.setEmployee(e3);
 
+
+            //
+//            Parking p=session.get(Parking.class, 4);
+//            session.delete(p);
+
+            Employee e=session.get(Employee.class,2);
+            session.delete(e);
+
+
+
+    //we dont need if we are using  @OneToOne(cascade = CascadeType.PERSIST)
+
+//           session.save(e1);
+//            session.save(e2);
+//            session.save(e3);
+//
 //            session.save(parking1);
 //            session.save(parking2);
 //            session.save(parking3);
-
-    //we dont need if we are using  @OneToOne(cascade = CascadeType.PERSIST)
-//            session.save(e1);
-//            session.save(e2);
-//            session.save(e3);
 
             //some specific paring
 //            Parking parkingTemp=session.get(Parking.class, 2);
@@ -60,22 +67,22 @@ public class One2OneEx {
 
             //use fetch join
             //from Parking p  fetch join p.employee Employee
-            List<Parking> parkingList=
-                    session
-                            .createQuery("from Parking p join fetch p.employee Employee", Parking.class).getResultList();
-
-
-            System.out.println("$$$$$$$$$$$$$$$$$$$$$$");
-            for(Parking p: parkingList){
-                System.out.println(p.getParkingLocation());
-                System.out.println("-----------------------");
-                System.out.println(p.getEmployee().getEmpName());
-            }
-            System.out.println("************************");
+//            List<Parking> parkingList=
+//                    session
+//                            .createQuery("from Parking p join fetch p.employee Employee", Parking.class).getResultList();
+//
+//
+//            System.out.println("$$$$$$$$$$$$$$$$$$$$$$");
+//            for(Parking p: parkingList){
+//                System.out.println(p.getParkingLocation());
+//                System.out.println("-----------------------");
+//                System.out.println(p.getEmployee().getEmpName());
+//            }
+//            System.out.println("************************");
 
             //List<Parking> parkingList=session.
 
-            System.out.println("--------------------");
+            //System.out.println("--------------------");
 
             tx.commit();
         }catch (Exception e){

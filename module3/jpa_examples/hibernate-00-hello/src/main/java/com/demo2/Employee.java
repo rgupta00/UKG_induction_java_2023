@@ -21,7 +21,7 @@ enum  EmpType{
 @EqualsAndHashCode
 
 @Entity
-@Table(name = "emp_table4")
+@Table(name = "emp_table_doubt")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +34,7 @@ public class Employee {
     @Column(name = "emp_dept", nullable = false)
     private String dept;
 
-    @Enumerated(EnumType.STRING)
+    //@Enumerated(EnumType.STRING)
     private EmpType empType;
 
 //    @Temporal(TemporalType.DATE)

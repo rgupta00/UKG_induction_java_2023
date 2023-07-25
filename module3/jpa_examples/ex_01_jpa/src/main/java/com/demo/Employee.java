@@ -1,49 +1,25 @@
 package com.demo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "emp_table_jpa")
 public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String name;
     private double salary;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 
     public Employee(String name, double salary) {
         this.name = name;
         this.salary = salary;
-    }
-
-    public Employee() {
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Employee{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", salary=").append(salary);
-        sb.append('}');
-        return sb.toString();
     }
 }
