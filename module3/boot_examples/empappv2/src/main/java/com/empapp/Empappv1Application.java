@@ -12,6 +12,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 //Empappv1Application how it works?
+/*
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan
+ */
 @SpringBootApplication
 public class Empappv1Application implements CommandLineRunner {
 
@@ -28,6 +33,7 @@ public class Empappv1Application implements CommandLineRunner {
 	private EntityManager em;
 
 	public static void main(String[] args) {
+		System.out.println("--------public static void main(String[] args) -------");
 		ApplicationContext ctx= SpringApplication
 				.run(Empappv1Application.class, args);
 	}
