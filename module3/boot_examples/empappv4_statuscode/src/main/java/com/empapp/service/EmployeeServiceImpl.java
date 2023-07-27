@@ -3,6 +3,8 @@ package com.empapp.service;
 import com.empapp.entities.Employee;
 import com.empapp.excetions.EmployeeNotFoundException;
 import com.empapp.repo.EmployeeRepo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,8 @@ import java.util.Optional;
 public class EmployeeServiceImpl implements EmployeeService{
 
     private EmployeeRepo employeeRepo;
-
+    private Logger logger = LoggerFactory.getLogger(EmployeeServiceImpl.class)
+;
     @Autowired
     public EmployeeServiceImpl(EmployeeRepo employeeRepo) {
         this.employeeRepo = employeeRepo;
@@ -21,7 +24,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public List<Employee> getAll() {
-        return employeeRepo.findAll();
+        long start= System.currentTimeMillis();
+        List<Employee> employeeList= employeeRepo.findAll();
+        long end= System.currentTimeMillis();
+        logger.info("time taken to execute getall method is "+(end-start)+" ms");
     }
 
     @Override
@@ -30,10 +36,16 @@ public class EmployeeServiceImpl implements EmployeeService{
 //        return optEmp.orElseThrow(() ->
 //                new EmployeeNotFoundException("employee with id "+ id +" is not found"));
 
+        long start= System.currentTimeMillis();
+
         System.out.println(employeeRepo.getClass());
 
-        return employeeRepo.findById(id).orElseThrow(() ->
+        Employee employee= employeeRepo.findById(id).orElseThrow(() ->
                 new EmployeeNotFoundException("employee with id "+ id +" is not found"));
+
+        long end= System.currentTimeMillis();
+        logger.info("time taken to execute getById method is "+(end-start)+" ms");
+        return employee;
     }
 
     @Override
