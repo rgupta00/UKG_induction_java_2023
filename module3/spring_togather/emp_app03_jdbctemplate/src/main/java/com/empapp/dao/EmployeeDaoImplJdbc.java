@@ -22,14 +22,42 @@ import java.util.List;
 public class EmployeeDaoImplJdbc implements EmployeeDao{
 
    private JdbcTemplate jdbcTemplate;
+
    @Autowired
     public EmployeeDaoImplJdbc(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
+//    @Override
+//    public List<Employee> getAll() {
+//      return  jdbcTemplate.query("select * from emp", new EmpRowMapper());
+//    }
+
+    //using anno inner class
+//    @Override
+//    public List<Employee> getAll() {
+//        return  jdbcTemplate.query("select * from emp", new RowMapper<Employee>() {
+//            @Override
+//            public Employee mapRow(ResultSet rs, int i) throws SQLException {
+//                Employee e=new Employee(rs.getInt("id"),
+//                        rs.getString("name"),
+//                        rs.getDouble("salary"));
+//                return e;
+//            }
+//        });
+//
+//    }
+
+
     @Override
     public List<Employee> getAll() {
-      return  jdbcTemplate.query("select * from emp", new EmpRowMapper());
+
+        return  jdbcTemplate.query("select * from emp", ( rs,  i) ->
+                 new Employee(rs.getInt("id"),
+                        rs.getString("name"), rs.getDouble("salary"))
+        );
+
     }
+
     @Override
     public void addEmployee(Employee employee) {
        jdbcTemplate.update("insert into emp(name, salary) values(?,?)",

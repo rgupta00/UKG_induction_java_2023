@@ -11,6 +11,7 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan(basePackages = {"com.empapp"})
 public class AppConfig {
+
     @Bean
     public JdbcTemplate jdbcTemplate(){
         JdbcTemplate jdbcTemplate=new JdbcTemplate();
@@ -18,6 +19,7 @@ public class AppConfig {
         return jdbcTemplate;
     }
 
+    //simple connection factory : better connection =>1
     @Bean
     public DriverManagerDataSource dataSource(){
         DriverManagerDataSource ds=new DriverManagerDataSource();
