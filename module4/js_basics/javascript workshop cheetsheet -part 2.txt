@@ -1,0 +1,686 @@
+
+
+Node Js 
+--------------
+
+	* Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 
+		engine and executes JavaScript code outside a web browser
+		
+	* Nodejs use an event driven single threaded, non blocking io model 
+	
+	*ligth weight and good for data intensive application that works real time and accross sevral devices
+	
+	*Asynchronous event-driven IO helps concurrent request handling
+
+hello world:
+--------------
+
+maths.js
+
+function add(a, b){
+    return a+b;
+}
+function diff(a, b){
+    return a-b;
+}
+function mul(a, b){
+    return a*b;
+}
+
+module.exports =add;
+
+second.js
+
+var addfun= require('./maths')
+console.log('hello')
+console.log(addfun(2,5));
+
+
+
+Now how to export multiple methods?
+--------------------------
+Spread operator
+
+module.exports ={add, diff, mul };
+
+// module.exports ={
+//    add: add,
+//    diff: diff,
+//    mul: mul
+// };
+
+Now inside second.js we will get object that contain all exported funcation from maths.js
+
+var mathsObs= require('./maths')
+console.log('hello')
+console.log(mathsObs.add(2,5));
+
+
+
+
+
+Modules types in Nodejs
+-------------------------
+1. build in: http, fs, streams, buffer, events, url, os path etc
+2. 3rd party: nodemon, mocha, chi, mongoose
+3. our own module: custom modules
+
+
+
+3. File writing
+-----------------------
+third.js: writing to file
+--------------------------
+var fs = require('fs');
+
+var data = 'Hello World!';
+
+fs.writeFile('test.txt', data, function (err) {
+  if (err) 
+	return console.log(err);
+  
+  console.log('Hello World > test.txt');
+});
+console.log('testing');
+
+
+
+4. file writing
+-----------------
+
+var fs = require('fs');
+fs.readFile('test.txt', 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log(data);
+});
+
+
+reading file synch:
+-------------------
+var fs = require('fs');
+console.log('file reading starting');
+var data= fs.readFileSync('test.txt');
+console.log(data.toString());
+console.log('file reading finished');
+
+
+5. file reading and writing
+----------------------------
+
+node filereadwrite.js
+
+
+var fs = require('fs');
+
+//Read from one file and write to other
+var srcPath = "text1.txt";
+var savPath = "text2.txt";
+
+	fs.readFile(srcPath, 'utf8', function (err, data) {
+            if (err) throw err;
+            
+            fs.writeFile (savPath, data, function(err) {
+                if (err) throw err;
+                console.log('complete');
+            });
+        });
+
+https://www.geeksforgeeks.org/node-js-fs-writefile-method/
+
+
+6. creating hello world server
+--------------------------
+
+node server.js
+
+killall -9 node
+
+server.js
+_________
+var http = require("http");
+
+var srvr = http.createServer(function (request, response) {
+	//console.log(request);
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+	response.end('Hello World\n');
+
+});
+
+srvr.listen(8081);
+
+console.log('Server running at http://127.0.0.1:8081/');
+
+npm install -g nodemon 
+nodemon ./server.js localhost 8080
+
+
+
+7. connecting with mysql
+------------------------
+
+npm install mysql
+
+checking connection:
+--------------------
+let mysql=require('mysql');
+let conn= mysql.createConnection({
+   host:"localhost" ,
+   user: "root",
+   password: "root",
+   database:"ymsdemo3"
+})
+
+conn.connect(function(err){
+    if(err) throw err;
+    console.log('connected')
+})
+
+printing all records:
+----------------------
+
+conn.connect(function(err){
+    if(err) throw err;
+    console.log('connected')
+    conn.query("select * from emp_table", function(err, result, fields){
+        if(err) throw err;
+        for(let i=0; i<result.length; i++){
+            console.log(JSON.stringify(result[i]));
+        }
+        conn.end();
+    })
+})
+
+
+
+8. NodeJs Express
+------------------
+
+	=> Express.js is a Node js web application server framework, 
+	which is specifically designed for building single-page, multi-page, and hybrid web applications.
+
+	=> It has become the standard server framework for node.js. 
+	Express is the backend part of something known as the MEAN stack.
+
+	MEAN STACK:
+	----------
+	1) MongoDB - The standard NoSQL database
+	2) Express.js - The default web applications framework
+	3) Angular- The JavaScript MVC framework used for web applications
+	4) Node.js - Framework used for scalable server-side and networking applications. 
+
+	Installation
+	_____________
+	
+	https://www.npmjs.com/package/express
+
+
+	Need of Nodemon:
+	______________
+	similer to devtools(spring boot)
+
+	installation 
+	sudo npm install -g --force nodemon
+
+
+Hello world server:
+__________________
+
+demo.js
+_______
+
+let express=require('express')
+let app=express();
+
+app.get('/', function(req, resp){
+    resp.send('express js working!!')
+}).listen(4000);
+console.log('server is running')
+
+
+
+how to run : nodemon demo.js
+
+Example: routes:
+________________
+
+let express=require('express')
+let app=express();
+
+app.get('/', function(req, resp){
+    resp.send('express js working!!')
+})
+app.get('/home', function(req, resp){
+    resp.send('home')
+})
+app.get('/about', function(req, resp){
+    resp.send('about')
+})
+
+app.get('/admin', function(req, resp){
+    resp.send('admin')
+})
+
+app.get('/foo*bar', function(req, resp){
+    resp.send('admin')
+})
+
+app.post('/postdemo', function(req, resp){
+    resp.send('post')
+})
+
+app.listen(4000);
+console.log('server is running')
+
+
+Router parameter:
+_________________
+	is is possible to have roots with the parameter by specifing the parameters
+	in the path of the root itself. 
+
+	Root parameter help to retrive the values which are specified in the url
+
+	These values are store in the request params object along with the keys which is the name
+	of the root parameters 
+
+	Ex:
+
+app.get('/customers/:custId/orders/:orderId', function(req, resp){
+    resp.send(req.params)
+})
+
+//get query&params in express
+
+//etc. example.com/user/000000?gender=male
+
+app.get('/user/:id', function(req, res) {
+
+  const query = req.query;// query = {gender:"male"}
+
+  const params = req.params; //params = {id:"000000"}
+
+})
+
+Multiple route callback/ Handler functin:
+__________________________________________
+	It is possible to use more then one callback funcation that can act as 
+	"middleware" to handle client request. 
+
+	These functions may use next ('route') method to bypass the remaining route callback, this
+	can be implemented by encorce preconditions on the routes
+
+	middleware is just like servlet filter that is used to do some job before route is going to hit
+	it contain common functinality that need to run with routes
+
+https://expressjs.com/en/guide/writing-middleware.html
+
+
+Ex:
+____
+
+let express=require('express')
+let app=express();
+
+let checkUrl=function(req, resp, next){
+    console.log('current rounte is '+ req.originalUrl)
+    next();
+
+}
+app.use(checkUrl);
+
+app.get('/', function(req, resp){
+    resp.send('express js working!!')
+})
+app.get('/home', function(req, resp){
+    resp.send('home')
+})
+app.get('/about', function(req, resp){
+    resp.send('about')
+})
+app.listen(4000);
+console.log('server is running')
+
+
+Ex: COnfigure array of callback function to handle an route
+_____________________________________________________________
+
+let express=require('express')
+let app=express();
+
+let callback1=function(req, resp, next){
+    console.log('callback 1 function one executed '+ req.originalUrl)
+    next();
+}
+let callback2=function(req, resp, next){
+    console.log('callback 2 function one executed '+ req.originalUrl)
+    next();
+}
+
+app.get('/home',[callback1, callback2], function(req, resp){
+    resp.send('home')
+})
+
+app.listen(4000);
+console.log('server is running')
+
+
+
+
+How to run Middleware on an specific routes
+_____________________________________________
+let express=require('express')
+let app=express();
+const router= express.Router();
+
+
+let checkUrl=function(req, resp, next){
+    console.log('current rounte is '+ req.originalUrl)
+    next()
+}
+
+app.get('/', function(req, resp){
+    resp.send('express js working!!')
+})
+router.get('/login',checkUrl, function(req, resp){
+    resp.send('login')
+})
+app.get('/about', function(req, resp){
+    resp.send('about')
+})
+
+router.get('/admin',checkUrl, function(req, resp){
+    resp.send('admin')
+})
+
+app.post('/postdemo', function(req, resp){
+    resp.send('post')
+})
+app.use('/', router);
+app.listen(4200);
+console.log('server is running')
+
+
+
+How to put Middleware in sepreate file
+______________________________________
+
+middleware.js
+______________
+
+
+module.exports=function(req, resp, next){
+    console.log('current rounte is '+ req.originalUrl)
+    next()
+}
+
+server.js
+_________
+
+let express=require('express')
+let checkUrl=require('./middleware')
+let app=express();
+const router= express.Router();
+
+app.get('/', function(req, resp){
+    resp.send('express js working!!')
+})
+router.get('/login',checkUrl, function(req, resp){
+    resp.send('login')
+})
+app.get('/about', function(req, resp){
+    resp.send('about')
+})
+
+router.get('/admin',checkUrl, function(req, resp){
+    resp.send('admin')
+})
+
+app.post('/postdemo', function(req, resp){
+    resp.send('post')
+})
+app.use('/', router);
+app.listen(4200);
+console.log('server is running')
+
+
+sending html page:
+__________________
+app.get('/about', function(req, resp){
+    resp.sendFile(__dirname+'/about.html')
+})
+
+
+==> What if 2 url are same: routes defined first is registed
+
+
+https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get#:~:text=Router()%20is%20called%2C%20a,structure%20to%20the%20main%20app.
+
+https://stackoverflow.com/questions/31978347/fs-writefile-in-a-promise-asynchronous-synchronous-stuff/47361261
+
+https://www.guru99.com/node-js-tutorial.html
+https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
+
+
+
+
+
+mongoose with nodejs
+____________________
+MEAN demo example:
+____________________
+Angular<--------> Express <------> mongodb
+		Nodejs		   mongoose	
+
+
+
+Hello world example application
+________________________________
+
+step1: databasse 
+
+use rajdb2;	
+steps 1: create databse and collections
+Book2
+book1s
+
+db.book.insert({
+    title: 'java head first',
+    author: 'katthy',
+    category: 'java'
+})
+
+db.book.insert({
+    title: 'spring in action',
+    author: 'foo',
+    category: 'spring'
+})
+
+db.book.insert({
+    title: 'MEAN in action',
+    author: 'bar',
+    category: 'bar'
+})
+
+db.book.find();
+
+
+step 2: create an project
+	npm init 
+         npm install body-parser
+	npm install express mongoose body-parser
+
+
+        npm install mongoose@6.10.0
+
+
+	npm install express --save
+
+step 3: create book model using mongoose
+
+
+Book.model.js
+________________
+
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var BookSchema = new Schema({
+  title: String,
+  author: String,
+  category: String
+});
+
+module.exports = mongoose.model('Book', BookSchema);
+
+
+
+What is  body-parser?
+______________________
+	To handle HTTP POST request in Express.js we need to install middleware module called body-parser.
+	body-parser extract the entire body portion of an incoming request stream and exposes it on req.body.
+
+	This body-parser module parses the JSON, buffer, string and URL encoded data submitted using HTTP POST request. 
+
+
+step 4: app.js==> CRUD operation
+____________________________
+
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var Book = require('./Book.model');
+
+var port = 8080;
+var db = 'mongodb://localhost/rajdb332'
+
+mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true});
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.get('/', function(req, res) {
+  res.send('happy to be here');
+});
+
+app.get('/book', function(req, res) {
+  console.log('getting all books');
+  Book.find({})
+    .exec(function(err, books) {
+      if(err) {
+        res.send('error occured')
+      } else {
+        console.log(books);
+        res.json(books);
+      }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.get('/book/:id', function(req, res) {
+  console.log('getting all books');
+  Book.findOne({
+    _id: req.params.id
+    })
+    .exec(function(err, books) {
+      if(err) {
+        res.send('error occured')
+      } else {
+        console.log(books);
+        res.json(books);
+      }
+    });
+});
+
+app.post('/book', function(req, res) {
+  var newBook = new Book();// ref to moongooes sch
+
+  newBook.title = req.body.title;
+  newBook.author = req.body.author;
+  newBook.category = req.body.category;
+
+  newBook.save(function(err, book) {
+    if(err) {
+      res.send('error saving book');
+    } else {
+      console.log(book);
+      res.send(book);
+    }
+  });
+});
+
+app.post('/book2', function(req, res) {
+  Book.create(req.body, function(err, book) {
+    if(err) {
+      res.send('error saving book');
+    } else {
+      console.log(book);
+      res.send(book);
+    }
+  });
+});
+
+app.put('/book/:id', function(req, res) {
+  Book.findOneAndUpdate({
+    _id: req.params.id
+    },
+    { $set: { title: req.body.title }
+  }, {upsert: true}, function(err, newBook) {
+    if (err) {
+      res.send('error updating ');
+    } else {
+      console.log(newBook);
+      res.send(newBook);
+    }
+  });
+});
+
+app.delete('/book/:id', function(req, res) {
+  Book.findOneAndRemove({
+    _id: req.params.id
+  }, function(err, book) {
+    if(err) {
+      res.send('error removing')
+    } else {
+      console.log(book);
+      res.status(204);
+    }
+  });
+});
+
+app.listen(port, function() {
+  console.log('app listening on port ' + port);
+});
+
+
+https://stackoverflow.com/questions/28712248/difference-between-mongodb-and-mongoose
+https://mongoosejs.com/docs/guide.html
+https://stackoverflow.com/questions/39870867/what-does-app-usebodyparser-json-do#:~:text=on%20this%20post.-,bodyParser.,after%20the%20middleware%20(i.e.%20req.
+https://www.geeksforgeeks.org/express-js-res-json-function/
+https://stackoverflow.com/questions/50448272/avoid-current-url-string-parser-is-deprecated-warning-by-setting-usenewurlpars
+https://stackoverflow.com/questions/32811510/mongoose-findoneandupdate-doesnt-return-updated-document
+
