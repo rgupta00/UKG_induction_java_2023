@@ -33,6 +33,8 @@ public class EmployeeController {
     @GetMapping(path = "employees")
     public ResponseEntity<List<Employee>> getAll(){
         System.out.println(employeeService.getClass());
+        if(1==1)
+            throw new RuntimeException("some db error");
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAll());
     }
 

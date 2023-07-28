@@ -4,17 +4,22 @@ import com.empapp.entities.Employee;
 import com.empapp.excetions.EmployeeNotFoundException;
 import com.empapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 //http://localhost:9090/empapp/v1/api/employees
 //SRP
 @RestController
 @RequestMapping(path = "v1/api") //?
 public class EmployeeController {
+
+    @Value("${EMPLOYEEAPP.ADD.SUCCESS}")
+    private String addEmpMessage;
 
     private EmployeeService employeeService;
 
@@ -33,6 +38,8 @@ public class EmployeeController {
     @GetMapping(path = "employees")
     public ResponseEntity<List<Employee>> getAll(){
         System.out.println(employeeService.getClass());
+        if(1==1)
+            throw new RuntimeException("some db error");
         return ResponseEntity.status(HttpStatus.OK).body(employeeService.getAll());
     }
 
@@ -44,9 +51,10 @@ public class EmployeeController {
 
     //---------adding a new employee -----
     @PostMapping(path = "employees")
-    public ResponseEntity<String> addEmployee(@RequestBody Employee employee) {
+    public ResponseEntity<String> addEmployee( @Valid @RequestBody Employee employee) {
         Employee addedEmployee=  employeeService.addEmployee(employee);
-        return ResponseEntity.status(HttpStatus.CREATED).body("employee added succsssfully and auto gen keys "+ addedEmployee.getId());
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(addEmpMessage+ addedEmployee.getId());
     }
 
     //--------------update a particular employee------------

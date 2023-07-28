@@ -17,7 +17,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy //2 hey spring boot support aspectJ framework
 @SpringBootApplication
 public class Empappv3Application implements CommandLineRunner {
-
 	@Autowired
 	private EmployeeService employeeService;
 
@@ -29,8 +28,6 @@ public class Empappv3Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("--adding new employees----");
-
-
 //		employeeService.addEmployee(new Employee("amit",7000.00));
 //		employeeService.addEmployee(new Employee("sumit",8000.00));
 
