@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <script>
+    let data = fetch('http://localhost:9090/empapp/api/employees')
+       data.then((item) => {
+        return item.json();
+    }).then((result)=>{
+        console.log(result)
+    }).catch(function(err){
+        console.log(err)
+    })
+    
+    // .catch(function(err){
+    //     console.log('----------------')
+    //     console.log(err)
+    // })
+
+    // data.then((item) => {
+    //     return item.json();
+    // }).then((result) => {
+    //     console.log(result);
+    // }).catch(function(err){
+    //     console.log('----------------')
+    //     console.log(err)
+    // })
+
+
+
+
+ 
+    
+</script>
+</body>
+</html>

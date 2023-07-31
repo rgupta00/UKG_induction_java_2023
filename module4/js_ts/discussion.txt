@@ -1,0 +1,5 @@
+what is TypeScript:
+super set of js
+what is the purpose :
+    to help dev to write and undertand code faster
+    ex of foo.js        foo.ts

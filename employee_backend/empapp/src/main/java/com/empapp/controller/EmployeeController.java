@@ -18,7 +18,7 @@ import com.empapp.dao.Employee;
 import com.empapp.service.EmployeeService;
 @RestController // @RestController=  @Controller+@ResponseBody
 //@ResponseBody: is a annotation that trigger jackson parser to convert java object to json
-@CrossOrigin()
+//@CrossOrigin()
 @RequestMapping(path = "api")
 public class EmployeeController {
 
