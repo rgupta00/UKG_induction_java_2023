@@ -1,55 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>functional programing in js</title>
 </head>
+
 <body>
     <script>
-//filter , map, reduce, sort 
-//functional programming in es 6
-const companies = [
-	{name: "Company One", category: "Finance", start: 1981, end: 2003},
-	{name: "Company Two", category: "Retail", start: 1992, end: 2008},
-	{name: "Company Three", category: "Auto", start: 1999, end: 2007},
-	{name: "Company Four", category: "Retail", start: 1989, end: 2010},
-	{name: "Company Five", category: "Technology", start: 2009, end: 2014},
-	{name: "Company Six", category: "Finance", start: 1987, end: 2010},
-	{name: "Company Seven", category: "Auto", start: 1986, end: 1996},
-	{name: "Company Eight", category: "Technology", start: 2011, end: 2016},
-	{name: "Company Nine", category: "Retail", start: 1981, end: 1989}
-  ];
-  
-  const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
-    
-//   companies.forEach(c=>console.log(c))
+//how we function in js
 
-    ages.filter(age=>age>30).forEach(age=>console.log(age))
+// function add(a, b){
+//     return a+b;
+// }
+
+//alternative way of defining fuction
+
+// let fun=function(a, b){
+//     return a+b;
+// }
 
 
+// let fun=(a, b)=> a+b;
+// console.log(fun(2,4))
 
 
-        //how to write lambda in js
+        //filter , map, reduce, sort 
+        //functional programming in es 6
+        const companies = [
+            { name: "Company One", category: "Finance", start: 1981, end: 2003 },
+            { name: "Company Two", category: "Retail", start: 1992, end: 2008 },
+            { name: "Company Three", category: "Auto", start: 1999, end: 2007 },
+            { name: "Company Four", category: "Retail", start: 1989, end: 2010 },
+            { name: "Company Five", category: "Technology", start: 2009, end: 2014 },
+            { name: "Company Six", category: "Finance", start: 1987, end: 2010 },
+            { name: "Company Seven", category: "Auto", start: 1986, end: 1996 },
+            { name: "Company Eight", category: "Technology", start: 2011, end: 2016 },
+            { name: "Company Nine", category: "Retail", start: 1981, end: 1989 }
+        ];
 
-        //function expression
-    //    let f= function(a, b){
-    //         return a+b;
-    //     }
+        const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
-    //    let f= (a, b)=>a+b
-    //     console.log(f)
-    //    console.log(f(3,6))
+//let we print all ages
+// ages.forEach(age=>console.log(age))
+//ages.filter(age=> age>=21).forEach(age=>console.log(age))
 
+//print all companies
+// companies.forEach(c=> console.log(c))
 
+// all ages 21 and over
+//fiter retail companies
+// companies.filter(function(c){
+//     return c.category=='Retail'
+// }).forEach(c=> console.log(c))
 
+// companies.filter(c=>c.category=='Retail').forEach(c=> console.log(c))
 
-        //function expession is not hoisted.
-        // function foo(){
-        //     console.log('hello')
-        // }
-        //function expression
-        // var a=function(){
+//filter all 80's companies
+//1980-1890
+// companies
+// .filter(c=> c.start>=1980 && c.start<=1990)
+// .forEach(c=> console.log(c))
+//company last for >= then 10 yr
+// companies
+// .filter(c=> {
+//     console.log("hello")
+//     return (c.end-c.start)>=10
+// })
+// .forEach(c=> console.log(c))
 
-        // }
+// companies.filter(c=> {
+//     console.log("hello")
+//     return (c.end-c.start)>=10
+// });
+
+//create array of company names
+
+let names= companies.map(c=>c.name);
+names.forEach(name=> console.log(name))
+
+//create array of company names and start date -end date
+//Sorting: sorting companies basis on start year
     </script>
 </body>
+
 </html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ES 6 basics</title>
+</head>
+<body>
+    <script>
+
+
+// 1. var hoisting and function scope, let vs var
+
+//    var flag=true;
+// 	if(flag){
+// 		var fname="rajeev";
+// 	}
+// 	console.log(fname); // can be accessed
+
+//    var fname;
+//    var flag=true;
+// 	if(flag){
+// 		 fname="rajeev";
+// 	}
+// 	console.log(fname); // can be accessed
+
+//    let flag=true;
+// 	if(flag){
+// 		let fname="rajeev";
+// 	}
+// 	console.log(fname); //it will  give ur error : good 
+
+// var a='india';
+// var a='US';
+// console.log(a)
+
+// var a;
+// a='india';
+//  a='US';
+// console.log(a)
+//Identifier 'a' has already been declared 
+// let a='india';
+// let a='US';
+// console.log(a)
+
+// //what is the OP?
+// console.log(x);
+// var x=33;
+
+//what is the OP? error: Uncaught ReferenceError: Cannot access 'x' before initialization
+// console.log(x);
+// let x=33;
+
+// function greetPerson(name){
+//     if (name==="rajeev"){
+//         let greet="hello programmer";
+//     }else{
+//         let greet="hello person";
+//     }
+
+//     console.log(greet);
+// }
+
+// greetPerson('rajeev')
+
+// function greetPerson(name){
+//     if (name==="rajeev"){
+//         var greet="hello programmer";
+//     }else{
+//         var greet="hello person";
+//     }
+
+//     console.log(greet);
+// }
+
+// greetPerson('rajeev')
+
+// greet='india';
+
+// function greetPerson(name){
+//     var greet;
+//     if (name=="rajeev"){
+//          greet="hello programmer";
+//     }else{
+//          greet="hello person";
+//     }
+
+//     console.log(greet);
+// }
+
+// greetPerson('rajeev')
+
+
+
+
+// 2. const in ES 6
+// const a=5
+// a=55;
+
+// const ob={"name":"raj"}
+// // ob=55;
+// ob.name='pawan'
+// console.log(ob.name)
+
+
+// 3. Arrow function, functional programming in js
+
+// let fun=function(){
+//     console.log('hello')
+// }
+
+let fun=()=> console.log('hello')
+//u can funcation programming js same as in java 8
+
+// 4. Default value to function arguments
+
+// let fun2=function(a=9, b=10){
+//         console.log(a+b)
+//         console.log(a+": "+b)
+// }
+
+// fun2(2)
+
+
+// 5. Rest operation in ES 6 ( aka variable arguemnt methods of java)
+// let displayColor=function(){
+//     console.log(message);
+//     for(let i in arguments){
+//         console.log(arguments[i]);
+//     }
+// }
+
+// let message="list of color";
+
+// displayColor(message, "red","black","blue");
+
+// function displayColor(){
+//     console.log(message);
+//     for(let i in arguments){
+//         console.log(arguments[i]);
+//     }
+// }
+
+// let message="list of color";
+// let m="foo"
+// displayColor(m, "red","black","blue");
+
+
+// let displayColor=function(){
+//     console.log(message);
+//     for(let i in arguments){
+//         console.log(arguments[i]);
+//     }
+// }
+
+// let message="list of color";
+
+// displayColor(message, "red","black","blue");
+
+let displayColor=function(message, ...color){
+    console.log(message);
+    console.log(color)
+    //ES 6 loop
+    // for(c of color){
+    //     console.log(c)
+    // }
+}
+
+let message="list of color";
+let colorArray = ['Orange','Yellow','Indigo'];
+// displayColor(message, "red","black","blue");
+ //displayColor(message, colorArray);
+//displayColor(message, ...colorArray); ? will come back on this
+
+
+// 6. Spread operator in es 6: help u to write min code
+// let firstname = "rajeev";
+// let lastname = "gupta";
+
+//object literal
+// let person = {
+//     firstname:firstname,
+//     lastname:lastname
+// };
+
+// let person = {
+//     firstname,
+//     lastname
+// }
+
+// console.log(person.firstname)
+// console.log(person.lastname)
+
+
+// 7.Spread operator with object literals
+
+// 8. Destructuring arrary
+
+// let employee = ["rajeev", "gutpa", "Male"];
+// let [fname, lname, gender] = employee;
+
+// console.log(fname)
+// console.log(lname)
+// console.log(gender)
+
+// 9. Destructuring objects
+
+
+const msg={
+    name: "rajeev gupta",
+    desi:"trainer",
+    hobby:"traveling",
+    social:{
+        twitter:"@rajeev_gupta76",
+        facebook:"https://www.facebook.com/profile.php?id=100021806671318"
+    }
+}
+
+//what is the code u have to write before ES 6
+// console.log(msg.name)
+// console.log(msg.desi)
+// console.log(msg.social.twitter)
+
+// const {desi, hobby, social, name}=msg;
+
+// console.log(name)
+// console.log(desi)
+// console.log(hobby)
+// console.log(social.twitter)
+
+
+
+
+
+// 10. String templetes
+
+const person={
+	name:"rajeev gupta",
+	address:"delhi",
+	phone:"43544344444"
+};
+
+//console.log("name of person is "+ person.name+" address is "+ person.address)
+
+// console.log(`name of the person is
+// ${person.name}
+//  and address is ${person.address} and phone is 
+//     ${person.phone}
+// `)
+
+
+
+// 11. for of loop: used with iterables
+
+//of vs in
+// let data =Array('foo','bar','jar')
+
+// for(d in data){
+//     console.log(data[d])
+// }
+
+
+//ES 6 : of: same as java enhance for loop
+// for(d of data){
+//     console.log(d)
+// }
+
+    </script>
+</body>
+</html>

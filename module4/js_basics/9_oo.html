@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>OO in ES6</title>
+</head>
+<body>
+    <script>
+   
+
+
+
+        //object litral
+        let ob={
+            name: "foo"
+        }
+
+        //ctr function
+        // function Person(name){
+        //     this.name=name;
+        // }
+
+        // let ob2=new Person("rajesh");
+        // console.log(ob2.name)
+
+       
+        // let ob2=new Person("rajesh");
+        // console.log(ob2.name)
+
+        // function Person(name){
+        //             this.name=name;
+        // }
+    
+
+        //java c++
+      
+
+        // class Person{
+        //     constructor(name){
+        //         this.name=name
+        //     }
+        //     print(){
+        //         console.log(`person details is ${this.name}`)
+        //     }
+        // }
+
+        // let p=new Person('raja')
+
+
+        // p.print()
+       // console.log(typeof Person)
+
+
+       //how to do inheritance in function: Prototype(skip)
+
+       //how to do inh in class (to do)
+
+        //how to use visiblity modifer with ES 6*
+    //    class Person{
+    //         constructor(name){
+    //             console.log('ctr of person is called')
+    //             this.name=name
+    //         }
+    //         print(){
+    //             console.log(`person details is ${this.name}`)
+    //         }
+    //         static foo(){
+    //             console.log('foo static method')
+    //         }
+    //     }
+
+    //     class Employee extends Person{
+    //         constructor(name, salary){
+    //            // console.log('ctr of Employee is called')
+    //             super(name)
+    //             this.salary=salary;
+    //         }
+    //         print(){
+    //             super.print()
+    //             console.log(`person details is ${this.salary} ${this.name}`)
+    //         }
+    //     }
+
+
+    //     // let p=new Person('raja')
+    //     // p.print();
+    //     // p.foo();
+
+    //     Person.foo();
+        
+    
+    // class A{
+    //     constructor(){
+    //         console.log('ctr of class A')
+    //     }
+    // }
+    // class B extends A{
+    //     constructor(){
+    //         super()
+    //         console.log('ctr of class B')
+    //     }
+    // }
+
+    // let b=new B()
+
+
+          class Person{
+            constructor(name){
+                console.log('ctr of person is called')
+                this.name=name
+            }
+            get getName(){
+                console.log(`this will call getName`)
+                return this.name;
+            }
+
+            set setName(newName){
+                console.log(`this will call setName`)
+                this.name=newName
+            }
+            //getter
+            // get getName(){
+            //     return this.name;
+            // }
+            //setter
+        }
+
+        let p=new Person('rajeev')
+        console.log(p.getName)
+        p.setName='rajeev gupta'
+
+        console.log(p.getName)
+
+    </script>
+</body>
+</html>

@@ -601,6 +601,53 @@ app.get('/book', function(req, res) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.get('/book/:id', function(req, res) {
   console.log('getting all books');
   Book.findOne({

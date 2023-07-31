@@ -577,6 +577,147 @@ function decleration vs function expression:
 
 
 
+functional programming with javascript:
+------------------------------------------
+
+filter , map, reduce, sort 
+//functional programming in es 6
+const companies = [
+	{name: "Company One", category: "Finance", start: 1981, end: 2003},
+	{name: "Company Two", category: "Retail", start: 1992, end: 2008},
+	{name: "Company Three", category: "Auto", start: 1999, end: 2007},
+	{name: "Company Four", category: "Retail", start: 1989, end: 2010},
+	{name: "Company Five", category: "Technology", start: 2009, end: 2014},
+	{name: "Company Six", category: "Finance", start: 1987, end: 2010},
+	{name: "Company Seven", category: "Auto", start: 1986, end: 1996},
+	{name: "Company Eight", category: "Technology", start: 2011, end: 2016},
+	{name: "Company Nine", category: "Retail", start: 1981, end: 1989}
+  ];
+  
+  const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
+
+  //printing all companies details
+ ------------------------------
+
+  for(let i=0; i< companies.length; i++){
+	  console.log(companies[i]);
+  }
+
+
+
+ //funcational way: forEach
+---------------------------------
+
+//print all companies
+// all ages 21 and over
+//fiter retail companies
+//filter all 80's companies
+//company last for >= then 10 yr
+//create array of company names
+//create array of company names and start date -end date
+//Sorting: sorting companies basis on start year
+
+companies.forEach(function(company){
+	console.log(company);
+})
+
+//funcational way: forEach using => operator
+companies.forEach(company=>console.log(company))
+
+
+// all ages 21 and over
+----------------------------
+const selectedAges=ages.filter( function(age){
+	if(age>= 21){
+		return true;
+	}
+
+})
+const selectedAges=ages.filter( age=>age >=21);
+console.log(selectedAges);
+
+
+
+//fiter retail companies
+----------------------------
+const retailCompanies=companies.filter(function(company){
+	if(company.category=="Retail"){
+			return true;
+	}
+})
+
+console.log(retailCompanies);
+
+
+//fiter retail companies
+-------------------------
+const retailCompanies=companies.filter(company=>company.category==="Retail");
+console.log(retailCompanies);
+
+
+
+//filter all 80's companies
+--------------------------
+const companies80=companies.filter(function(company){
+	if(company.start>=1980 && company.start<=1990){
+		return true;
+	}
+});
+
+console.log(companies80);
+const companies80=companies.filter(company=>(company.start>=1980 && company.start<=1990));
+
+
+//company last for >= then 10 yr
+-------------------------------
+const companiesMore10= companies.filter(function(company){
+	if((company.end-company.start)>=10){
+		return true;
+	}
+})
+
+console.table(companiesMore10);
+const companiesMore10= companies.filter(company=>(company.end-company.start)>=10)
+
+
+map=> convert something to something else
+---------------------------------------
+
+//create array of company names
+const companyNameArr=companies.map(function(company){
+	return company.name;
+})
+
+console.log(companyNameArr);
+const companyNameArr=companies.map(company=>company.name)
+
+
+create array of company names and start date -end date
+-------------------------------------------------------
+// comapnyName[2009-2017]
+
+const companyNameArr2=companies.map(function(company){
+	return `${company.name} [${company.start}--${company.end}]`;
+})
+
+console.table(companyNameArr2);
+
+
+Sorting: sorting companies basis on start year
+-----------------------------------------------
+const sortedComanies=companies.sort(function(c1, c2){
+	return	(c1.start> c2.start)?1:-1;
+});
+
+console.table(sortedComanies);
+
+
+
+
+
+
+
+
 
 --------------------------------------session 2: -------------------------------------------------
 Topic
@@ -1210,11 +1351,8 @@ console.log(p.isSenior());
 
 
 
-
-
 8. Destructuring arrary
 -------------------------------
-
 => ie pulled apart elements of an arrray
 
 let employee = ["rajeev", "gutpa", "Male"];
@@ -1637,44 +1775,6 @@ ________________
 
 
 
-js classes are First-class citizen:
-------------------------------------
-
-	* JavaScript class is a first-class citizen. 
-	* It means that you can pass a class into a function,return it from a function, and assign it to a variable.
-
-
-	function factory(aClass) {
-	    return new aClass();
-	}
-	 
-	let greeting = factory(class {
-	    sayHi() {
-		console.log('Hi');
-	    }
-	});
-	 
-	greeting.sayHi(); // 'Hi'
-
-
-
-	Singleton with class:
-	-----------------------
-
-	iffi
-	let app = new class {
-	    constructor(name) {
-		this.name = name;
-	    }
-	    start() {
-		console.log(`Starting the ${this.name}...`);
-	    }
-	 
-	}('Awesome App');
-	 
-	app.start(); // Starting the Awesome App.
-
-
 
 
 
@@ -1754,7 +1854,8 @@ callback : calculator application:
 	==> callback hell
 
 
-
+The benefit of using a callback function is that you can wait for the 
+result of a previous function call and then execute another function call.
 
 
 Promise API:
@@ -1844,6 +1945,13 @@ There is a special syntex to work with promise in more convient way
 Asynch: Keyword is added to function to tell that it return a promise rather then returning
 	a simple value
 await: we can use await when calling any function that returing a promise including web api functions (blocking)
+
+
+Async/Await is used to work with promises in asynchronous functions. It is basically syntactic sugar for promises. It is just a wrapper to restyle code and make promises easier to read and use. It makes asynchronous code look more like synchronous/procedural code, which is easier to understand.
+
+await can only be used in async functions. It is used for calling an async function and waits for it to resolve or reject. await blocks the execution of the code within the async function in which it is located. 
+
+
 
   const result =async ()=>{
             const r1= await cleanRoom();
@@ -1964,6 +2072,9 @@ https://www.loginradius.com/blog/async/callback-vs-promises-vs-async-await/
 
 Fetch API
 -------------
+
+fetch() funcation is readymade function that provide an promise:
+
   <script>
         let data = fetch('http://localhost:8080/empapp/employee')
         data.then((item) => {
@@ -1974,18 +2085,6 @@ Fetch API
 
     </script>
 
-
-
-
-fetch() funcation is readymade function that provide an promise:
-_______________________________________________________________
-let data = fetch('http://localhost:9000/bookapp/book')
-
-data.then((item) => {
-    return item.json();
-}).then((result) => {
-    console.log(result);
-})
 
 
 AJAX	
@@ -2362,6 +2461,32 @@ typescript classes:
 
 
 	https://dev.to/satansdeer/typescript-constructor-shorthand-3ibd
+	
+Typescript Constructor Shorthand
+-------------------------------
+class User {
+  private name: string;
+  private surname: string;
+  private age: number;
+
+  constructor(name: string, surname: string, age: number) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+  }
+}
+
+
+
+You can write same class using shorter syntax:
+
+class User {
+  constructor(
+    private name: string,
+    private surname: string,
+    private age: number
+  ) {}
+}
 
 
 
@@ -2606,5 +2731,44 @@ data.then((item)=>{
 	
 
 
+
+
+js classes are First-class citizen:
+------------------------------------
+
+	* JavaScript class is a first-class citizen. 
+	* It means that you can pass a class into a function,
+	  return it from a function, and assign it to a variable.
+
+
+	function factory(aClass) {
+	    return new aClass();
+	}
+	 
+	let greeting = factory(class {
+	    sayHi() {
+		console.log('Hi');
+	    }
+	});
+	 
+	greeting.sayHi(); // 'Hi'
+
+
+
+	Singleton with class:
+	-----------------------
+
+	iffi
+	let app = new class {
+	    constructor(name) {
+		this.name = name;
+	    }
+	    start() {
+		console.log(`Starting the ${this.name}...`);
+	    }
+	 
+	}('Awesome App');
+	 
+	app.start(); // Starting the Awesome App.
 
 

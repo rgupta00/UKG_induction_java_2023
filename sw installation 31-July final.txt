@@ -1,0 +1,14 @@
+Sw required : node angular and docker
+----------------
+node installation
+
+npm install -g @angular/cli@8.3.19
+
+ng --version
+
+mongodb
+
+docker
+
+https://www.youtube.com/watch?v=aCRMnDLnWmU&t=178s&ab_channel=ProgrammingKnowledge
+
