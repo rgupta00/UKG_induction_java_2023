@@ -1,0 +1,57 @@
+
+Step 1 :
+
+install kubectl:kubectl is a command line tool,
+ using kubectl we can connect to k8s cluster from our computer .
+
+kubectl : command line tool to communicate k8s
+https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+https://dl.k8s.io/release/v1.27.4/bin/windows/amd64/kubectl.exe
+
+
+Step 2 :
+
+install minikube : 
+minikube: single node cluster
+https://minikube.sigs.k8s.io/docs/start/
+
+minikube-window-amd64
+https://github.com/kubernetes/minikube/releases/tag/v1.24.0
+https://github.com/kubernetes/minikube/releases/download/v1.24.0/minikube-windows-amd64.exe
+
+
+
+Once you download both exe file , just move these two file to separate directory/folder like below
+and set env variable 
+
+
+step 3:
+docker must be install in advance
+
+
+
+Step 4 :
+
+minikube version
+
+step 5 : 
+There is multiple driver using any of them you can start your minikube
+Hyper-v
+Docker
+
+using docker as driver:
+-------------------------
+minikube start --driver=docker
+minikube status
+
+minikube create a single node cluster
+
+
+step 6:  As we know minikube will provide you single node cluster 
+	to work with k8s locally so to verify cluster info and
+	 node status we can run below commands
+
+kubectl cluster-info
+kubectl get node
+
+
