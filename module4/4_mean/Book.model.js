@@ -6,5 +6,7 @@ var BookSchema = new Schema({
   author: String,
   category: String
 });
-
-module.exports = mongoose.model('Book', BookSchema);
+//Book--> books
+//Book123-->book123s
+ module.exports = mongoose.model('Book', BookSchema);
+//module.exports = BookSchema

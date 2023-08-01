@@ -9,7 +9,7 @@ var port = 8080;
 var db = 'mongodb://localhost/rajdb3'
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true});
-
+//u can send json directly ..by sending encoded url string form 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
@@ -21,8 +21,7 @@ app.get('/', function(req, res) {
 
 app.get('/book', function(req, res) {
   console.log('getting all books');
-  Book.find({})
-    .exec(function(err, books) {
+  Book.find({}).exec(function(err, books) {
       if(err) {
         res.send('error occured')
       } else {
@@ -32,10 +31,11 @@ app.get('/book', function(req, res) {
     });
 });
 
-app.get('/book/:id', function(req, res) {
+app.get('/book/:id1', function(req, res) {
   console.log('getting all books');
+  //console.log(req.params)
   Book.findOne({
-    _id: req.params.id
+    _id: req.params.id1
     })
     .exec(function(err, books) {
       if(err) {
@@ -81,7 +81,7 @@ app.put('/book/:id', function(req, res) {
     _id: req.params.id
     },
     { $set: { title: req.body.title }
-  }, {upsert: true}, function(err, newBook) {
+  }, {upsert: false}, function(err, newBook) {
     if (err) {
       res.send('error updating ');
     } else {
