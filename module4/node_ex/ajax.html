@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax demo</title>
+</head>
+
+<body>
+    <script>
+
+        const url = 'https://jsonplaceholder.typicode.com/users';
+        console.log('hello')
+
+        let data = fetch(url)
+
+        data.then((item) => {
+            return item.json();
+        }).then((result) => {
+            console.log(result);
+        })
+        .catch(function(err){
+            console.log('some er')
+            console.log(err)
+        })
+
+        // const xhr = new XMLHttpRequest();
+        // xhr.open('GET', url);
+        // xhr.responseType = 'json';
+
+        // xhr.onload = () => {
+        //     console.log(xhr.response);
+        // }
+        // xhr.onerror = (err) => {
+        //     console.log(err);
+        // }
+        // xhr.send();
+        console.log('bye')
+        
+
+    </script>
+</body>
+
+</html>

@@ -6,11 +6,14 @@ let app=express();
 let checkUrl=function(req, resp, next){
     console.log('current rounte is '+ req.originalUrl)
     next();
+
 }
 app.use(checkUrl);
 
 app.get('/', function(req, resp){
+    console.log('start')
     resp.send('express js working!!')
+    console.log('end')
 })
 app.get('/home', function(req, resp){
     resp.send('home')

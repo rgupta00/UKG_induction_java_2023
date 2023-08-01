@@ -1,16 +1,12 @@
 
 let express=require('express')
 let app=express();
-
-
-
-
-
+//servlet life cycle--> filter
 app.get('/', function(req, resp){
     resp.send('express js working!!')
 })
 app.get('/home', function(req, resp){
-    resp.send('home')
+    resp.send('i am at home')
 })
 app.get('/about', function(req, resp){
     resp.send('about')

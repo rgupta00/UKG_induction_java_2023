@@ -1,7 +1,7 @@
 
-let express=require('express')
+let express=require('express')//express module
 let checkUrl=require('./middleware')
-let app=express();
+let app=express();//
 const router= express.Router();
 
 app.get('/', function(req, resp){

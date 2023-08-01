@@ -1,7 +1,12 @@
 var fs = require('fs');
-fs.readFile('test.txt', 'utf8', function (err,data) {
-  if (err) {
-    return console.log(err);
-  }
-  console.log(data);
-});
+
+console.log('start')
+
+fs.readFile('test1.txt','utf-8',function(err, d){
+  if(err)
+    console.log(err)
+  if(d)
+  console.log(d)
+})
+
+console.log('end');
