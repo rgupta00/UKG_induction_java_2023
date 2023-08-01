@@ -1,0 +1,40 @@
+Mongodb basics:
+==============
+
+show dbs 		// List all databases
+use rajdb 		//Switches to inventory
+show collections  	//List all tables in the current selected database
+
+
+db.employees.insert({empName:"ekta", age:"36", salary:"60000"})
+
+db.employees.find()	// Equivalent to show all
+
+
+db.employees.update({empName:"raj"},{$set:{salary:"90400"}})
+db.employees.updateMany({empName:"raj"},{$set:{salary:"90400"}})
+
+
+findAll: db.employees.find();
+
+db.employees.find({empName:"amit"})
+db.employees.find({_id:ObjectId("5b7ce72981d101d12438464d")})
+
+db.users.find( { age: { $gt: 20, $lt: 30 } } )
+
+db.employees.remove({empName:"raj", "email" : "r@r.com"})
+
+db.tablename.remove()
+
+
+db.help() 
+db.employees.help()  
+
+var myEmployee=[{empName:"p", age:23, salary:60000},
+		{empName:"r", age:56, salary:6900}  ];
+db.employees.insert(myEmployee);
+
+	All users: 
+		db.users.find()
+		db.users.find({ _id: 42})
+

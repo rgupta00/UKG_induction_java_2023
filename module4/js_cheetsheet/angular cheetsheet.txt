@@ -277,6 +277,24 @@ _________________________________
  Two way binding from V <==> C
 _________________________________
 
+Need of 2 way data binding
+
+  <input type="text" [value]="title" (keyup.enter)="title=$event.target.value"/>
+  <h2>{{title}}</h2>
+  
+  
+  in component
+  title:string='this is a title';
+  
+  
+how to simplify the code?
+-----------------------
+
+  <input type="text" [(ngModel)]="title"/>
+  <h2>{{title}}</h2>
+
+
+
 	=> build in directive, [()]
 
 Example:
@@ -340,9 +358,9 @@ import { Component } from '@angular/core';
 })
 export class CalComponent {
 
-  public num1:number=0;
-  public num2:number=0;
-  public result:number=0;
+   num1:number=0;
+   num2:number=0;
+   result:number=0;
 
   addition() {
     this.result= this.num1+ this.num2;
