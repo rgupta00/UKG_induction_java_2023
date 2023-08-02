@@ -6,20 +6,28 @@
 <body>
     <script>
         total=0;
+		
 		function sum(){
 			y=20;
 			var x=10;
 			total=x+y;
 		}
-
+		sum();
+		console.log(y)
+		function a(){
+			console.log(y)
+		}
 		function display(){
-			sum();
+			//sum();
+			console.log('------------------')
+			console.log(y)
 			alert(total);
 			alert(y);
-			alert(x);
+		//	alert(x);
 		}	
 
-        display();
+        //display();
+		a();
     </script>
 </body>
 </html>

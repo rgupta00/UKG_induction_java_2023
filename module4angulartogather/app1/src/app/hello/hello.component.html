@@ -1,0 +1,16 @@
+{{helloData}}
+<!-- <input disabled="{{true}}"  type="text" value="raj"/> <br/>
+<input [disabled]="false"  type="text" value="raj"/> <br/> -->
+<!-- 
+<div hidden="{{isHidden}}">this is hidden using interpolation</div><br/>
+<div [hidden]="isHidden">this is hidden using property binding</div><br/> -->
+
+<!-- <input type="text" (keyup)=callmethod($event)/>
+    <p>{{data}} -->
+
+ <!-- <input type="text" [value]="title" (keyup)="title=$event.target.value"/>
+ <br/>
+  <h2>{{title}}</h2>  -->
+
+  <input type="text" [(ngModel)]="title"/>
+  <h2>{{title}}</h2>

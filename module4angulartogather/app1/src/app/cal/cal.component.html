@@ -1,0 +1,16 @@
+First no: <input [(ngModel)] ='num1' type="number" /><br/>
+Second no: <input [(ngModel)] ='num2' type="number"/><br/>
+<button  (click) = 'addition()'>add</button>
+<button  (click) = 'mul()'>mul</button>
+<br>
+Result is ={{result}}
+
+<br>
+<p> simple date is :{{mydate | date}} </p> <br/>
+<p> medium date is :{{mydate | date: 'medium'}} </p> <br/>
+<p> short date is :{{mydate | date: 'short'}} </p> <br/>
+<p> full date is :{{mydate | date: 'fullDate'}} </p> <br/>
+
+<p> currrency : {{123456 | currency: 'EUR' }}</p>
+<p> no : {{1232.24959265 | number: '3.1-2'}} </p>
+  <p> no : {{3.15159265 | number: '1.4-4'}}</p>
