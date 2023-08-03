@@ -1,0 +1,427 @@
+
+kubernetes notes:
+-----------------
+
+kubernetes components
+--------------------
+
+API server 
+----------
+	aka gateway all request for creating POD will be recived by API gateway. 
+	Just like reception of of an company. 
+	It validate the YAML syntex and forward request to the scheudler if everything is good
+
+Scheduler
+---------
+	 Will listen request from API server and decide at which node Pod need to be created.
+
+
+Kubelet
+---------
+	 will create the pod on the worker node
+
+Container runtime
+----------------
+	 manage container
+
+KubeProxy
+-----------
+	 Kubeproxy ensure that communication bw the pods within Node working good
+
+Controller Manager
+------------------
+	 Controller manager identity if all pods are working as per request on worker node
+	for example if we have requested 4 pod and one is deleted due to whatever 
+	then it will inform API server about it
+	Controller Manager refer ETDC to ensure this.
+
+ETDC
+---
+	 It is a NO-SQL database of master node. 
+	 it store data into Key value. It keep the inforation about number of 
+	pods required. 
+	It dont store any inforation of our application. It store only cluster inforation of master node
+
+
+
+
+Need of Services
+---------------------
+	let an Pod running spring boot application and another running database
+	 intracting with each other. 
+
+	Every pod have its IP address and let assume spring boot application is 
+	using IP address to communicate toDB. 
+	
+	But what happen if db server restart?
+
+	IP address will be changed and i need to do changes in spring boot application.
+	 It is not acceptable
+
+	We can use Services that also hold IP address but that dont 
+	chage even if IP address of POD was changes
+
+
+
+Type of Services in K8s
+-------------------
+1. External services
+2. Internal services
+
+
+
+K8s Cluster creation
+----------------------
+
+1. Imperative
+
+commands
+create 1 pod
+create 1 more pod
+delete 1 pod
+....
+...
+
+2. Declerative using yaml
+----------------------------
+IAAC (Infrastructure as Code) 
+Collaboration and review
+
+
+
+Container Runtime Interface CRI
+------------------------------------
+	K8s have create an guideline (aka JSR) for various vendor that are creating runtime engine.
+	 Container life cycle is managed by container runtime.  
+	 Various option we have ContainerD, Crio,Rocket.
+
+	Intially k8s was 100% dependent on Docker. But latter k8s have issues some guideline 
+	so that it is easiler to manage containers. 
+	
+	But docker have not followed that guideline. K8s have created docker shim to support docker.
+	But not k8s have stopped support for docker shim
+
+
+
+Kubernetes Tutorial  Run Spring boot application on k8s cluster
+------------------------------------------------------------
+
+What we will learning?
+--------------------
+
+Kubernetes basic commands
+How to deploy spring boot application to local Kubernetes cluster 
+Kubernetes Dashboard and health check .
+
+
+Minikube?
+-----------
+	Minikube runs a single-node Kubernetes cluster on your machine
+	 so that you can try out Kubernetes for your daily development work.
+
+
+minikube vs kubeadm
+https://www.padok.fr/en/blog/minikube-kubeadm-kind-k3s
+
+
+Step 1 :
+------------
+install kubectl:kubectl is a command line tool,
+ using kubectl we can connect to k8s cluster from our computer .
+
+kubectl : command line tool to communicate k8s
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
+https://dl.k8s.io/release/v1.27.4/bin/windows/amd64/kubectl.exe
+
+
+Step 2 :
+
+install minikube : 
+minikube: single node cluster
+https://minikube.sigs.k8s.io/docs/start/
+
+minikube-window-amd64
+https://github.com/kubernetes/minikube/releases/tag/v1.24.0
+https://github.com/kubernetes/minikube/releases/download/v1.24.0/minikube-windows-amd64.exe
+
+
+
+Once you download both exe file , just move these two file to separate directory/folder like below
+and set env variable 
+
+
+step 3:
+docker must be install in advance
+
+
+
+Step 4 :
+
+minikube version
+
+step 5 : 
+There is multiple driver using any of them you can start your minikube
+Hyper-v
+Docker
+
+using docker as driver:
+-------------------------
+minikube start --driver=docker
+minikube status
+
+minikube create a single node cluster
+
+
+step 6:  As we know minikube will provide you single node cluster 
+	to work with k8s locally so to verify cluster info and
+	 node status we can run below commands
+
+kubectl cluster-info
+kubectl get node
+
+
+step 7:
+hello world k8s
+
+create a spring boot docker example and create a docker images
+springboot-k8s-api:1.0
+
+docker build -t springboot-k8s-demo:1.0 .
+
+step 8: we need to allow Kubernetes to read your docker repository 
+------------------------------------------
+we need to run a commmand
+
+minikube docker-env
+
+
+run last command 
+
+now k8s can read local repositories
+
+
+docker images	// list images specific to k8s
+
+springboot-k8s-api:1.0
+
+If amages is not read then run the command :
+ minikube image load springboot-k8s-demo:1.0 
+ 
+ springboot-k8s-demo:1.0  
+ 
+step 9:Create Deployment Object
+----------------------- 
+Deployments are Kubernetes objects that are used for managing pods. 
+we can describe deployment object details using YML file but for this example let’s play with command 
+
+kubectl create deployment springboot-k8s-api --image=springboot-k8s-demo:1.0 --port=8080
+
+
+With above command we are telling to k8s , create a deployment with name spring-boot-k8s and read the docker image springboot-k8s-app:1.0 then next create a pod and run my image inside containers
+
+Verify deployment status
+----------------
+kubectl get deployments
+
+Describe deployment object
+
+kubectl describe deployment springboot-k8s-api
+
+
+step 10: verfify pod created
+kubectl get pods
+
+kubectl logs springboot-k8s-api-69c96544b6-lmn5q
+
+
+step 10: expose deployment as service
+---------------------------------------
+kubectl expose deployment springboot-k8s-api --type=NodePort
+
+kubectl get service
+kubectl get svc
+
+
+getting url of service exposed:
+Start tunnel or get the proxy url of service to access it .
+
+minikube service springboot-k8s-api --url
+
+
+starting minikube dashboard
+minikube dashboard
+
+step 11:Clean up local state
+--------------------------
+
+Delete Service
+kubectl delete service springboot-k8s-api
+
+kubectl get service
+
+Delete Deployment
+kubectl delete deployment springboot-k8s-api
+
+
+minikube stop
+minikube delete
+
+
+
+Example 2: k8s deployment with yaml file
+=========================================
+
+step 1:
+
+minikube start --driver=docker
+minikube status
+kubectl cluster-info
+kubectl get node
+
+
+step 2:create a spring boot docker example and create a docker images
+
+docker build -t springboot-k8s-demo:1.0 .
+
+step 8: we need to allow Kubernetes to read your docker repository 
+
+minikube docker-env
+run last command 
+
+
+now k8s can read local repositories
+
+
+docker images	// list images specific to k8s
+
+springboot-k8s-api:1.0
+
+If amages is not read then run the command :
+
+ minikube image load springboot-k8s-demo:1.0 
+ 
+ springboot-k8s-demo:1.0  
+ 
+ 
+ 
+step 3:Create Deployment Object
+----------------------- 
+kubectl apply -f deployment.yaml
+
+kubectl get deployments
+
+kubectl get pods
+
+3 pods are running for 3 services
+
+check logs of each pods  
+kubectl logs spring-boot-k8s-95699b455-b58p6
+
+3 instance of service is running how i can consume my application ?
+how to do load balancing?
+
+now we need to use service: 
+	1. it expose the service to the outside world
+	2. act as a load balancer , it decide to use load balancing
+	
+
+NodePort: i should able to get service using ip and port no
+clusterIP
+Loadbalancer
+
+
+now expose the service 
+kubectl apply -f service.yaml 
+
+now list the services
+
+kubectl get services
+
+
+kubectl get nodes -o wide
+
+it ip is same as minikube ip
+minikube ip
+
+192.168.49.2:32117
+http://192.168.49.2:32117/message
+
+
+minikube dashboard
+
+
+
+
+
+
+step 11:Clean up local state
+--------------------------
+
+Delete Service
+kubectl delete service springboot-k8s-api
+
+kubectl get service
+
+kubectl delete service springboot-k8s-svc
+
+
+Delete Deployment
+kubectl delete deployment springboot-k8s-api
+
+spring-boot-k8s
+
+minikube stop
+minikube delete
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Kubernetes with Spring-boot app Kubernetes Hands on-example 
+minikube start --driver=docker
+minikube start
+kubectl apply -f pod.yml
+ kubectl get deployments
+ kubectl get pods
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
