@@ -1,0 +1,193 @@
+
+
+java spring boot + docker + k8s + 
+
+linux + networking
+
+imp commands of docker:
+---------------------
+
+docker info
+	give info about docker installation
+	
+
+docker version
+	give docker version
+
+docker images
+	listing of images
+	
+
+docker container ls
+	listing of all container that is running
+
+docker container ls -a
+	listing of all container that is running or not (even stopped)
+
+docker ps
+	older command of (eq of docker container ls)
+	
+docker ps -a (eq of docker container ls -a)
+
+
+docker images --help
+docker ps --help
+	give inforation about the commands
+	
+	
+	
+docker rmi tomcat -f
+	it will remove the images
+	
+	even if any instance of tomcat is running it will will stop it and then destroy all container
+	and then remove the tomcat image
+
+
+docker rmi -f $(docker images -a -q)
+	it will remove all images of from ur laptop
+	
+docker rm $(docker ps -a -q)
+	it will remove all containers (images would be still there)
+	
+docker system prune
+	it will clean everyting about docker
+	
+	
+docker inspect tomcat
+	will give all inforation about the image
+	
+	
+now let we do some ex on tomcat
+
+docker image pull tomcat:lastest
+
+
+how to run an container of tomcat
+docker container run -d -p 8080:8080 tomcat
+		-d: detached
+		-p: port mapping
+		
+		
+docker exec -it cid sh
+	if u wnat to go into the dir structure of tomcat that is inside a container
+	and do some chanage
+	
+
+docker container logs -f <cid>
+
+
+	
+container life cycle:
+--------------------
+docker container stop <cid>
+	used to stop a container
+	
+	
+docker container start <cid>
+
+
+
+now let me create our own image of a spring boot application
+
+how to do that?
+
+
+
+
+Docker hello world spring boot:
+_________________________________
+
+step 1: create emp-producer project, create hello controller 
+
+	Give final name inside build :<finalName>emp-producer</finalName>
+
+public class Employee {
+	private int id;
+	private String name;
+	private double salary;
+}
+
+
+
+@RestController
+public class EmployeeController {
+
+	@GetMapping(path = "employee")
+	public Employee getEmployee() {
+		return new Employee(121, "raj", 4000);
+	}
+}
+
+
+test and run it
+
+
+
+step 2: Create Dockerfile
+
+FROM openjdk:8
+EXPOSE 8080
+ADD target/emp-producer.jar emp-producer.jar
+ENTRYPOINT ["java","-jar","emp-producer.jar"]
+
+
+
+step 3: create image using command
+
+docker build -t emp-producer:1.2 .
+
+docker image ls
+
+
+step 4: run image 
+docker container run --name producer -p 8080:8080 -d emp-producer:1.2
+
+docker container logs <id>
+
+docker container logs -f <id>
+
+step 5: push image to docker hub
+
+first login : docker login
+
+then run command : 
+	docker tag emp-producer:1.2 rgupta00/emp-producer:1.2
+	docker push rgupta00/emp-producer:1.2
+
+step 6: pull image from the docker hub
+
+docker push rgupta00/emp-producer
+
+step 7: other person now can pull the image
+
+	remove the images 
+	docker images
+	docker image rmi <imgid> -f
+	
+now pull the image and run it
+
+docker run --name producer -p 8080:8080 rgupta00/emp-producer:1.2
+
+docker run --name producer -p 8080:8080 emp-producer
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
