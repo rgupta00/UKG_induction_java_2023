@@ -6,13 +6,66 @@
 <body>
     <script>
    
-
-
-
         //object litral
-        let ob={
-            name: "foo"
+        // let ob={
+        //     name: "foo"
+        // }
+        // console.log(ob.name)
+
+        // function createEmp(name, salary){
+        //     let ob={};
+        //     ob.name=name;
+        //     ob.salary=salary;
+        //     return ob;
+        // }
+
+        // let o=createEmp('raj',7800)
+
+
+        //why it is called ctr fuction : it is called "consturct funcation"
+        // function Emp(name, salary){
+        //     this.name=name;
+        //     this.salary=salary;
+        //     this.printDetails=function(){
+        //         console.log(`${this.name} and ${this.salary}`)
+        //     }
+        // }
+
+        // let o=new Emp('raj',7800)
+        // o.printDetails();
+
+        // let o2=new Emp('ravi',7800)
+
+
+        // class Emp{
+        //    constructor(name, salary){
+        //     this.name=name;
+        //     this.salary=salary;
+        //     this.hobby;
+        //    }
+        //    print(){
+        //     console.log(`${this.name} and ${this.salary} ${this.hobby}`)
+        //    }
+            
+        // }
+
+        //  let o=new Emp('raj',7800)
+
+        class Emp{
+
+           constructor(name, salary){
+            this.name=name;
+            this.salary=salary;
+            this.hobby;
+           }
+           print(){
+            console.log(`${this.name} and ${this.salary} ${this.hobby}`)
+           }
+            
         }
+
+         let o=new Emp('raj',7800)
+
 
         //ctr function
         // function Person(name){
@@ -103,32 +156,32 @@
     // let b=new B()
 
 
-          class Person{
-            constructor(name){
-                console.log('ctr of person is called')
-                this.name=name
-            }
-            get getName(){
-                console.log(`this will call getName`)
-                return this.name;
-            }
+        //   class Person{
+        //     constructor(name){
+        //         console.log('ctr of person is called')
+        //         this.name=name
+        //     }
+        //     get getName(){
+        //         console.log(`this will call getName`)
+        //         return this.name;
+        //     }
 
-            set setName(newName){
-                console.log(`this will call setName`)
-                this.name=newName
-            }
-            //getter
-            // get getName(){
-            //     return this.name;
-            // }
-            //setter
-        }
+        //     set setName(newName){
+        //         console.log(`this will call setName`)
+        //         this.name=newName
+        //     }
+        //     //getter
+        //     // get getName(){
+        //     //     return this.name;
+        //     // }
+        //     //setter
+        // }
 
-        let p=new Person('rajeev')
-        console.log(p.getName)
-        p.setName='rajeev gupta'
+        // let p=new Person('rajeev')
+        // console.log(p.getName)
+        // p.setName='rajeev gupta'
 
-        console.log(p.getName)
+        // console.log(p.getName)
 
     </script>
 </body>
