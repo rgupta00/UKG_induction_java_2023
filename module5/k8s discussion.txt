@@ -68,7 +68,9 @@ Type of Services in K8s
 1. External services
 2. Internal services
 
-
+NodePort: i should able to get service using ip and port no
+clusterIP
+Loadbalancer
 
 K8s Cluster creation
 ----------------------

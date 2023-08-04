@@ -1,0 +1,13 @@
+server:
+  servlet:
+    context-path: /productapp
+  port: 9090
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ukgdemo
+    password: root
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update

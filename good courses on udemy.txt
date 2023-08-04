@@ -1,0 +1,29 @@
+best course beginner friendly
+-------------------------------
+
+core java
+https://www.udemy.com/course/java-in-depth-become-a-complete-java-engineer/learn/lecture/4630766?start=0#overview
+
+https://www.udemy.com/course/java-the-complete-java-developer-course/learn/lecture/9400918?start=0#overview
+
+
+https://www.udemy.com/course/ocp11_from_oca8/
+
+angular
+https://www.udemy.com/course/the-complete-guide-to-angular-2/
+
+spring boot
+https://www.udemy.com/course/microservices-with-spring-boot-and-spring-cloud/
+
+spring hibernate basics
+https://www.udemy.com/course/spring-hibernate-tutorial/
+
+hibernate good course
+https://www.udemy.com/course/hibernate-and-jpa-fundamentals/
+
+Design pattern
+https://www.udemy.com/course/design-patterns-in-java-concepts-hands-on-projects/learn/lecture/9611020?start=0#overview
+
+
+DevOps
+https://www.udemy.com/course/decodingdevops/
